@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinations in Sri Lanka | Adventure Guide</title>
+  <meta name="description" content="Explore Sri Lanka's top destinations: Sigiriya, Ella, Kandy, Galle, Mirissa, Yala, Nuwara Eliya, and Jaffna with interactive filters and map.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar solid-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="logo"><span class="logo-badge">🧭</span> Adventure Guide</a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html" class="active">Destinations</a></li>
+          <li><a href="blog.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html" class="btn btn-primary btn-sm">✍️ Write Article</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button id="mobile-menu-btn" class="hamburger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <section class="page-header" style="background-image:linear-gradient(rgba(7,47,64,0.75), rgba(7,47,64,0.85)), url('https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1600&q=80');">
+      <div class="container">
+        <h1>Sri Lanka Destinations</h1>
+        <p>Filter by landscape to plan your route across ancient kingdoms, misty highlands, and palm-fringed bays.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filter-bar">
+          <div class="filter-buttons" role="group" aria-label="Filter destinations">
+            <button class="filter-btn active" data-dest-filter="All">All Places (8)</button>
+            <button class="filter-btn" data-dest-filter="Culture">Culture & Heritage</button>
+            <button class="filter-btn" data-dest-filter="Hill Country">Hill Country</button>
+            <button class="filter-btn" data-dest-filter="Beaches">Beaches</button>
+            <button class="filter-btn" data-dest-filter="Wildlife">Wildlife Safaris</button>
+          </div>
+        </div>
+
+        <div class="grid-4" id="destinations-page-grid"></div>
+      </div>
+    </section>
+
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Interactive Map</span>
+          <h2 class="section-title">Explore the Island Geography</h2>
+        </div>
+        <div style="border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border-color);">
+          <iframe
+            title="Interactive Map of Sri Lanka"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2023603.7580988785!2d79.521265!3d7.857685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2593cf65a1e9d%3A0xe13da4b400e2d38c!2sSri%20Lanka!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+            width="100%"
+            height="460"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Adventure Guide Sri Lanka. <a href="index.html">Return Home</a></p>
+      </div>
+    </div>
+  </footer>
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

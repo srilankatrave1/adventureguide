@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Adventure Guide Sri Lanka</title>
+  <meta name="description" content="Get in touch with Adventure Guide Sri Lanka for itinerary questions, press inquiries, or collaborations.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar solid-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="logo"><span class="logo-badge">🧭</span> Adventure Guide</a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="blog.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="admin.html" class="btn btn-primary btn-sm">✍️ Write Article</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button id="mobile-menu-btn" class="hamburger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <section class="page-header" style="background-image:linear-gradient(rgba(7,47,64,0.75), rgba(7,47,64,0.85)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');">
+      <div class="container">
+        <h1>Get in Touch</h1>
+        <p>Have a question about planning your Sri Lanka trip or partnering with us? Send us a note below.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:760px;">
+        <!-- Replace action URL with your Formspree endpoint e.g. https://formspree.io/f/your_id -->
+        <form action="https://formspree.io/f/placeholder" method="POST" class="form-card">
+          <div class="form-group">
+            <label for="contact-name">Full Name *</label>
+            <input type="text" id="contact-name" name="name" class="form-control" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email Address *</label>
+            <input type="email" id="contact-email" name="email" class="form-control" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Topic *</label>
+            <select id="contact-subject" name="subject" class="form-control">
+              <option value="Trip Planning Question">Trip Planning Question</option>
+              <option value="Guest Article Submission">Guest Article Submission</option>
+              <option value="Tourism / Hotel Partnership">Tourism / Hotel Partnership</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message *</label>
+            <textarea id="contact-message" name="message" class="form-control" rows="5" required placeholder="Tell us about your upcoming Sri Lanka travel plans..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Adventure Guide Sri Lanka. <a href="index.html">Return Home</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

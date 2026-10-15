@@ -1,1 +1,32 @@
-
+[
+  {
+    "slug": "sigiriya-lion-rock-guide",
+    "title": "Climbing Sigiriya Lion Rock at Sunrise: The Complete 2026 Guide",
+    "category": "Culture",
+    "date": "2026-10-02",
+    "readTime": "6 min read",
+    "author": "Adventure Guide Team",
+    "image": "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Everything you need to know about scaling Sri Lanka's iconic 5th-century sky fortress, beating the crowds, and climbing Pidurangala Rock for panoramic views."
+  },
+  {
+    "slug": "ella-train-journey-hill-country",
+    "title": "Kandy to Ella by Train: Riding the Most Scenic Railway on Earth",
+    "category": "Hill Country",
+    "date": "2026-09-24",
+    "readTime": "8 min read",
+    "author": "Adventure Guide Team",
+    "image": "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "From misty emerald tea plantations to the famous Nine Arch Bridge—here is how to book tickets, pick the best side of the carriage, and explore Ella."
+  },
+  {
+    "slug": "yala-safari-mirissa-coast-guide",
+    "title": "Leopards & Blue Whales: A 5-Day Southern Coast & Yala Safari Itinerary",
+    "category": "Wildlife",
+    "date": "2026-09-15",
+    "readTime": "7 min read",
+    "author": "Adventure Guide Team",
+    "image": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1200&q=80",
+    "excerpt": "Combine thrilling dawn jeep safaris in Yala National Park with golden palm beaches, surf breaks, and ethical whale watching in Mirissa and Galle."
+  }
+]

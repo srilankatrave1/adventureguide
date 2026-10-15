@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write New Article | Adventure Guide Publisher</title>
+  <meta name="description" content="Generate JSON article files for your Adventure Guide Sri Lanka blog.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar solid-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="logo"><span class="logo-badge">🧭</span> Adventure Guide</a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="blog.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html" class="active btn btn-primary btn-sm">✍️ Write Article</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button id="mobile-menu-btn" class="hamburger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <section class="page-header" style="background:linear-gradient(135deg, var(--teal-deep), var(--emerald));">
+      <div class="container">
+        <h1>✍️ Write & Publish an Article</h1>
+        <p>Fill out your travel story below to generate the ready-to-save JSON file for your GitHub <code>/posts</code> folder.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:880px;">
+        <form id="admin-article-form" class="form-card">
+          <div class="form-group">
+            <label for="adm-title">Article Title *</label>
+            <input type="text" id="adm-title" class="form-control" required placeholder="e.g., Ultimate Surfing Guide to Arugam Bay">
+          </div>
+          <div class="form-group">
+            <label for="adm-slug">URL Slug (auto-generated) *</label>
+            <input type="text" id="adm-slug" class="form-control" required placeholder="ultimate-surfing-guide-to-arugam-bay">
+          </div>
+          <div class="grid-3" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+            <div class="form-group">
+              <label for="adm-category">Category *</label>
+              <select id="adm-category" class="form-control">
+                <option value="Beaches">Beaches</option>
+                <option value="Wildlife">Wildlife</option>
+                <option value="Culture">Culture</option>
+                <option value="Hill Country">Hill Country</option>
+                <option value="Food">Food</option>
+                <option value="Adventure">Adventure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="adm-readtime">Read Time</label>
+              <input type="text" id="adm-readtime" class="form-control" value="6 min read">
+            </div>
+            <div class="form-group">
+              <label for="adm-author">Author Name</label>
+              <input type="text" id="adm-author" class="form-control" value="Adventure Guide Team">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="adm-image">Cover Image URL (Unsplash or your `/images/` path) *</label>
+            <input type="url" id="adm-image" class="form-control" required placeholder="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80">
+          </div>
+          <div class="form-group">
+            <label for="adm-excerpt">Short Excerpt (1–2 sentences shown on cards) *</label>
+            <textarea id="adm-excerpt" class="form-control" rows="2" required placeholder="Discover the best surf points, beachfront cafes, and season tips for Arugam Bay..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="adm-content">Article Content (HTML supported: `&lt;h2&gt;`, `&lt;p&gt;`, `&lt;ul&gt;`, `&lt;blockquote&gt;`) *</label>
+            <textarea id="adm-content" class="form-control" rows="10" required placeholder="<h2>Introduction</h2><p>Write your travel story here...</p><h2>Top Tips</h2><ul><li>Tip 1</li><li>Tip 2</li></ul>"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">⚡ Generate Article Files</button>
+        </form>
+
+        <div id="admin-output-wrap" class="form-card" style="display:none;margin-top:32px;">
+          <h3 style="margin-bottom:12px;">✅ Step 1: Save Individual Article File (<code id="output-filename">posts/slug.json</code>)</h3>
+          <button type="button" id="download-json-btn" class="btn btn-teal btn-sm" style="margin-bottom:14px;">⬇️ Download JSON File</button>
+          <pre id="output-single-json" class="code-output"></pre>
+
+          <h3 style="margin:28px 0 12px;">✅ Step 2: Add This Entry to the Top of <code>posts/posts.json</code></h3>
+          <pre id="output-index-json" class="code-output"></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Adventure Guide Sri Lanka. <a href="blog.html">View Live Blog</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

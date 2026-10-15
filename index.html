@@ -1,1 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adventure Guide | Explore Sri Lanka — Travel Guides, Itineraries & Stories</title>
+  <meta name="description" content="Discover Sri Lanka with Adventure Guide. Expert travel articles on Sigiriya, Ella, Yala safaris, southern surf beaches, hill country trains, and cultural gems.">
+  <meta property="og:title" content="Adventure Guide — Sri Lanka Travel Magazine">
+  <meta property="og:description" content="Curated itineraries, wildlife safari guides, mountain treks, and coastal escapes across Sri Lanka.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="loader-compass"></div>
+    <span>ADVENTURE GUIDE</span>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">🧭</span> Adventure Guide
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="blog.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html" class="btn btn-primary btn-sm">✍️ Write Article</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark or light mode">🌙</button>
+        <button id="mobile-menu-btn" class="hamburger" aria-label="Open navigation menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <span class="hero-badge">🌴 The Pearl of the Indian Ocean</span>
+        <h1>Experience Sri Lanka's <br><span id="typewriter" class="typewriter-text">Misty Tea Hills</span></h1>
+        <p>Handcrafted travel stories, off-the-beaten-path itineraries, and insider tips for exploring Sri Lanka's wildlife, peaks, and coastlines.</p>
+        <form class="hero-search" action="blog.html" method="GET" role="search">
+          <input type="search" name="q" placeholder="Search guides (e.g., Sigiriya, Ella train, Yala, Mirissa)..." aria-label="Search travel guides">
+          <button type="submit" class="btn btn-primary">Search Guides</button>
+        </form>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="destinations.html" class="btn btn-primary">Explore Destinations</a>
+          <a href="blog.html" class="btn btn-outline">Read Travel Blog</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animated Counters -->
+    <section class="stats-bar" aria-label="Travel statistics">
+      <div class="container stats-grid">
+        <div class="stat-item">
+          <h3 class="counter" data-target="48">0</h3>
+          <p>Curated Destinations</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="counter" data-target="125">0</h3>
+          <p>In-Depth Travel Guides</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="counter" data-target="24000">0</h3>
+          <p>Monthly Readers</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="counter" data-target="8">0</h3>
+          <p>UNESCO Heritage Sites</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Destinations (All 8 Required Locations) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Iconic Places</span>
+          <h2 class="section-title">Featured Sri Lanka Destinations</h2>
+          <p class="section-desc">From ancient royal citadels in the Cultural Triangle to sun-drenched southern surf towns.</p>
+        </div>
+        <div class="grid-4" id="home-destinations-grid"></div>
+      </div>
+    </section>
+
+    <!-- Latest Articles -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Fresh From the Journal</span>
+          <h2 class="section-title">Latest Travel Articles</h2>
+          <p class="section-desc">Field-tested itineraries, transport hacks, and photography guides written on the road.</p>
+        </div>
+        <div class="grid-3" id="home-latest-articles"></div>
+        <div style="text-align:center;margin-top:42px;">
+          <a href="blog.html" class="btn btn-teal">View All Articles →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel Categories -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Browse By Interest</span>
+          <h2 class="section-title">Travel Categories</h2>
+          <p class="section-desc">Pick your travel style to filter stories tailored to your Sri Lankan adventure.</p>
+        </div>
+        <div class="category-grid">
+          <a href="blog.html?category=Beaches" class="category-card reveal">
+            <span class="category-icon">🏖️</span>
+            <h3>Beaches</h3>
+            <p>Mirissa, Unawatuna & Arugam Bay</p>
+          </a>
+          <a href="blog.html?category=Wildlife" class="category-card reveal">
+            <span class="category-icon">🐆</span>
+            <h3>Wildlife</h3>
+            <p>Leopards, Elephants & Blue Whales</p>
+          </a>
+          <a href="blog.html?category=Culture" class="category-card reveal">
+            <span class="category-icon">🛕</span>
+            <h3>Culture</h3>
+            <p>Sigiriya, Kandy, Galle & Jaffna</p>
+          </a>
+          <a href="blog.html?category=Hill Country" class="category-card reveal">
+            <span class="category-icon">🚂</span>
+            <h3>Hill Country</h3>
+            <p>Ella Trains & Ceylon Tea Trails</p>
+          </a>
+          <a href="blog.html?category=Food" class="category-card reveal">
+            <span class="category-icon">🍛</span>
+            <h3>Food</h3>
+            <p>Hoppers, Kottu & Rice and Curry</p>
+          </a>
+          <a href="blog.html?category=Adventure" class="category-card reveal">
+            <span class="category-icon">🥾</span>
+            <h3>Adventure</h3>
+            <p>Surfing, Rafting & Peak Treks</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Time to Visit -->
+    <section class="section bg-sand">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Seasonal Planner</span>
+          <h2 class="section-title">Best Time to Visit Sri Lanka</h2>
+          <p class="section-desc">Thanks to two complementary monsoon seasons, Sri Lanka is a year-round tropical destination.</p>
+        </div>
+        <div class="season-grid">
+          <div class="season-card reveal">
+            <span class="season-months">December – April</span>
+            <h3>West & South Coast + Hill Country</h3>
+            <p>Ideal sunshine for Galle, Mirissa, Bentota, Colombo, Yala safaris, and crisp clear mornings in Ella and Nuwara Eliya.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">May – September</span>
+            <h3>East Coast & Northern Peninsula</h3>
+            <p>Prime dry weather for surfing in Arugam Bay, snorkelling Pigeon Island in Trincomalee, and exploring Jaffna.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">July – August</span>
+            <h3>Cultural Triangle & Kandy Perahera</h3>
+            <p>Witness the grand Kandy Esala Perahera festival and the Great Elephant Gathering at Minneriya National Park.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Gallery with Lightbox -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Visual Postcards</span>
+          <h2 class="section-title">Moments Across the Island</h2>
+          <p class="section-desc">Click any photo to view in full-screen lightbox mode.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item reveal" data-caption="Sunrise mist over Sigiriya Lion Rock Fortress">
+            <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=900&q=80" alt="Sigiriya Lion Rock" loading="lazy">
+            <div class="gallery-caption">Sigiriya Lion Rock</div>
+          </div>
+          <div class="gallery-item reveal" data-caption="Blue train crossing the Nine Arch Bridge in Ella">
+            <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=900&q=80" alt="Nine Arch Bridge Ella" loading="lazy">
+            <div class="gallery-caption">Nine Arch Bridge, Ella</div>
+          </div>
+          <div class="gallery-item reveal" data-caption="Wild Asian elephants in Yala National Park">
+            <img src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=900&q=80" alt="Yala National Park Elephants" loading="lazy">
+            <div class="gallery-caption">Yala National Park</div>
+          </div>
+          <div class="gallery-item reveal" data-caption="Golden hour palms along Mirissa Beach">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Mirissa Beach" loading="lazy">
+            <div class="gallery-caption">Mirissa Southern Coast</div>
+          </div>
+          <div class="gallery-item reveal" data-caption="Colonial lighthouse inside Galle Dutch Fort">
+            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=900&q=80" alt="Galle Dutch Fort" loading="lazy">
+            <div class="gallery-caption">Galle Dutch Fort</div>
+          </div>
+          <div class="gallery-item reveal" data-caption="Emerald tea terraces in Nuwara Eliya">
+            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=80" alt="Nuwara Eliya Tea Hills" loading="lazy">
+            <div class="gallery-caption">Nuwara Eliya Tea Estates</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">✕</button>
+        <img id="lightbox-img" src="" alt="Expanded view">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <!-- Testimonials Slider -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Reader Love</span>
+          <h2 class="section-title">What Fellow Travellers Say</h2>
+        </div>
+        <div class="testimonial-box reveal">
+          <p class="testimonial-quote" id="testimonial-quote">"Adventure Guide planned our entire 2-week route from Sigiriya to Mirissa. The sunrise tip for Lion Rock saved us hours!"</p>
+          <p class="testimonial-author" id="testimonial-author">Sarah & Liam — Melbourne, Australia</p>
+          <div class="slider-controls">
+            <button class="filter-btn" id="prev-testimonial" aria-label="Previous testimonial">← Prev</button>
+            <button class="filter-btn" id="next-testimonial" aria-label="Next testimonial">Next →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section">
+      <div class="container">
+        <div class="newsletter-box reveal">
+          <h2>Get Our Free 14-Day Sri Lanka Route Map</h2>
+          <p>Join 15,000+ travellers receiving new Sri Lanka articles, train booking alerts, and hidden homestay tips.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email address..." required aria-label="Email address">
+            <button type="submit" class="btn btn-primary">Subscribe Free</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo" style="margin-bottom:14px;">
+            <span class="logo-badge">🧭</span> Adventure Guide
+          </a>
+          <p>Your independent digital travel magazine dedicated to authentic adventures, cultural heritage, and sustainable travel across Sri Lanka.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html">All Destinations</a></li>
+            <li><a href="blog.html">Travel Articles</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Top Regions</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html?category=Culture">Cultural Triangle</a></li>
+            <li><a href="blog.html?category=Hill Country">Ella & Tea Country</a></li>
+            <li><a href="blog.html?category=Wildlife">Yala & Wilpattu</a></li>
+            <li><a href="blog.html?category=Beaches">Southern Coast</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Publisher Tools</h4>
+          <ul class="footer-links">
+            <li><a href="admin.html">✍️ Write New Article</a></li>
+            <li><a href="posts/posts.json">Posts JSON Feed</a></li>
+            <li><a href="https://github.com/srilankatrave1/adventureguide" target="_blank" rel="noopener">GitHub Repository</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Adventure Guide Sri Lanka. Built for GitHub Pages.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

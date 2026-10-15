@@ -343,17 +343,19 @@ img {
 }
 
 /* Hero Section */
+
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #ffffff;
-  padding: 120px 20px 80px;
+  padding: 100px 20px 50px;
   overflow: hidden;
 }
+
 
 
 .hero-bg {

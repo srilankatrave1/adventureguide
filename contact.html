@@ -39,8 +39,8 @@
 
     <section class="section">
       <div class="container" style="max-width:760px;">
-        <!-- Connected directly to Firebase Firestore (No Formspree redirect) -->
-        <form id="firebase-contact-form" class="form-card">
+        <!-- Connected to BOTH Firebase Admin Panel & jishansalmani305@gmail.com -->
+        <form id="firebase-contact-form" class="form-card" action="javascript:void(0);">
           
           <!-- Success / Error Alert Box -->
           <div id="form-status-msg" style="display:none; padding:14px 18px; border-radius:8px; margin-bottom:20px; font-weight:600;"></div>
@@ -81,10 +81,13 @@
 
   <script src="js/main.js"></script>
 
-  <!-- Direct Firebase Enquiry Submission Script -->
+  <!-- Dual Delivery Script: 1. Firebase Admin Panel + 2. Gmail Inbox (jishansalmani305@gmail.com) -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
     import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    // Your Gmail address for receiving instant enquiry notifications
+    const ADMIN_GMAIL = "jishansalmani305@gmail.com";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAuJoKjxmbHsYTTEN7KTcJNlvW5ysnZjLo",
@@ -104,21 +107,53 @@
     const statusMsg = document.getElementById('form-status-msg');
 
     form.addEventListener('submit', async (e) => {
-      e.preventDefault(); // Stops page from redirecting away
+      e.preventDefault();
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending Message...';
       statusMsg.style.display = 'none';
 
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const subject = document.getElementById('contact-subject').value;
+      const message = document.getElementById('contact-message').value.trim();
+      const dateStr = new Date().toLocaleDateString();
+
       try {
-        await addDoc(collection(db, "enquiries"), {
-          name: document.getElementById('contact-name').value.trim(),
-          email: document.getElementById('contact-email').value.trim(),
-          subject: document.getElementById('contact-subject').value,
-          message: document.getElementById('contact-message').value.trim(),
+        // 1. Save to Firebase Firestore (Shows up in Admin Panel -> Customer Enquiries)
+        const saveToFirebase = addDoc(collection(db, "enquiries"), {
+          name,
+          email,
+          subject,
+          message,
           status: 'New',
-          date: new Date().toLocaleDateString(),
+          date: dateStr,
           createdAt: new Date().toISOString()
         });
+
+        // 2. Send Email to jishansalmani305@gmail.com via FormSubmit AJAX
+        const sendToGmail = fetch(`https://formsubmit.co/ajax/${ADMIN_GMAIL}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            _subject: `🧭 New Adventure Guide Enquiry: ${subject} (from ${name})`,
+            _replyto: email,
+            _template: "table",
+            Customer_Name: name,
+            Customer_Email: email,
+            Topic: subject,
+            Message: message,
+            Submitted_On: dateStr
+          })
+        });
+
+        const [firebaseResult] = await Promise.allSettled([saveToFirebase, sendToGmail]);
+
+        if (firebaseResult.status === 'rejected') {
+          throw new Error(firebaseResult.reason?.message || 'Database error');
+        }
 
         statusMsg.style.display = 'block';
         statusMsg.style.background = 'rgba(17, 101, 73, 0.15)';

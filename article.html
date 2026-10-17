@@ -3,10 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel Article | Adventure Guide Sri Lanka</title>
-  <meta name="description" content="In-depth Sri Lanka travel guide and itinerary on Adventure Guide.">
+  <title id="page-title">Travel Article | Adventure Guide Sri Lanka</title>
+  <meta name="description" id="meta-description" content="In-depth Sri Lanka travel guide and itinerary on Adventure Guide.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Dynamic Self-Referencing Canonical Tag for Google Indexing -->
+  <link rel="canonical" id="canonical-url" href="https://srilankatrave1.github.io/adventureguide/article.html">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" id="og-title" content="Adventure Guide Sri Lanka">
+  <meta property="og:description" id="og-description" content="In-depth Sri Lanka travel guide and itinerary.">
+  <meta property="og:image" id="og-image" content="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:url" id="og-url" content="https://srilankatrave1.github.io/adventureguide/article.html">
+
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Dynamic JSON-LD Article Schema for Google Rich Results -->
+  <script type="application/ld+json" id="article-schema"></script>
 </head>
 <body>
   <div id="reading-progress"></div>
@@ -99,6 +114,79 @@
     </div>
   </footer>
   <button id="back-to-top" aria-label="Back to top">↑</button>
+
   <script src="js/main.js"></script>
+
+  <!-- Dynamic SEO Meta, Canonical & Schema Updater for Google Indexing -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAuJoKjxmbHsYTTEN7KTcJNlvW5ysnZjLo",
+      authDomain: "adventureguide-f656f.firebaseapp.com",
+      projectId: "adventureguide-f656f",
+      storageBucket: "adventureguide-f656f.firebasestorage.app",
+      messagingSenderId: "288678825751",
+      appId: "1:288678825751:web:6d9c81e8daea80602ab152",
+      measurementId: "G-615RM2SFRT"
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+
+    if (slug) {
+      const fullCanonicalUrl = `https://srilankatrave1.github.io/adventureguide/article.html?slug=${encodeURIComponent(slug)}`;
+      document.getElementById('canonical-url').setAttribute('href', fullCanonicalUrl);
+      document.getElementById('og-url').setAttribute('content', fullCanonicalUrl);
+
+      try {
+        const app = initializeApp(firebaseConfig, "seoApp");
+        const db = getFirestore(app);
+        const snap = await getDoc(doc(db, "posts", slug));
+
+        if (snap.exists()) {
+          const post = snap.data();
+          document.title = `${post.title} | Adventure Guide Sri Lanka`;
+          document.getElementById('meta-description').setAttribute('content', post.excerpt || post.title);
+          document.getElementById('og-title').setAttribute('content', post.title);
+          document.getElementById('og-description').setAttribute('content', post.excerpt || post.title);
+          if (post.image && post.image.startsWith('http')) {
+            document.getElementById('og-image').setAttribute('content', post.image);
+          }
+
+          // Inject BlogPosting Structured Data Schema
+          const schemaData = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": fullCanonicalUrl
+            },
+            "headline": post.title,
+            "description": post.excerpt || post.title,
+            "image": post.image && post.image.startsWith('http') ? post.image : "https://srilankatrave1.github.io/adventureguide/images/favicon.svg",
+            "author": {
+              "@type": "Organization",
+              "name": post.author || "Adventure Guide Team"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Adventure Guide Sri Lanka",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://srilankatrave1.github.io/adventureguide/images/favicon.svg"
+              }
+            },
+            "datePublished": post.date || "2026-10-17",
+            "dateModified": post.updatedAt || post.date || "2026-10-17"
+          };
+          document.getElementById('article-schema').textContent = JSON.stringify(schemaData);
+        }
+      } catch (e) {
+        console.warn("SEO Meta sync:", e);
+      }
+    }
+  </script>
 </body>
 </html>

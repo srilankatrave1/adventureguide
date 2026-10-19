@@ -1,1 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Lanka Tour Packages | Adventure Guide</title>
+  <meta name="description" content="Explore 10 most visited Sri Lanka tour packages. Filter by duration, budget, and themes like Honeymoon, Wildlife, Beach, and Heritage.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <!-- Google Fonts: Montserrat & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+    body { font-family: var(--font-body) !important; background-color: var(--bg-main); color: var(--text-main); }
+    
+    /* Akbar Travels Inspired Header Banner */
+    .akbar-banner {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px auto 30px;
+      box-shadow: var(--shadow-sm);
+    }
+    .akbar-banner h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+    .akbar-banner p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    
+    /* Round Theme Filter Bubbles */
+    .theme-bubbles-scroll {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding: 10px 5px 25px;
+      scrollbar-width: thin;
+      justify-content: flex-start;
+    }
+    @media(min-width: 992px) {
+      .theme-bubbles-scroll { justify-content: center; }
+    }
+    .theme-bubble {
+      flex: 0 0 110px;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .theme-bubble-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid transparent;
+      box-shadow: var(--shadow-sm);
+      margin: 0 auto 8px;
+      transition: var(--transition);
+    }
+    .theme-bubble.active .theme-bubble-img,
+    .theme-bubble:hover .theme-bubble-img {
+      border-color: var(--sunset);
+      transform: scale(1.05);
+    }
+    .theme-bubble-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .theme-bubble span {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      display: block;
+    }
 
+    /* Package Layout Grids */
+    .package-listing-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      align-items: start;
+      margin-bottom: 60px;
+    }
+    @media(max-width: 991px) {
+      .package-listing-container { grid-template-columns: 1fr; }
+    }
+
+    /* Tour List Item Card */
+    .tour-list-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .tour-list-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .tour-list-img {
+      position: relative;
+      height: 100%;
+      min-height: 200px;
+    }
+    .tour-list-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .tour-choice-badge {
+      position: absolute;
+      top: 12px;
+      left: 0;
+      background: var(--sunset);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 0 4px 4px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tour-list-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tour-pricing-area {
+      text-align: right;
+    }
+    @media(max-width: 768px) {
+      .tour-list-card { grid-template-columns: 1fr; }
+      .tour-list-img { height: 180px; }
+      .tour-pricing-area { text-align: left; margin-top: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">🧭</span> Adventure Guide
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="tours.html" class="active">Tours</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle mode">🌙</button>
+        <button id="mobile-menu-btn" class="hamburger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: 90px;">
+    <div class="container">
+      
+      <!-- Akbar Travels Inspired Top Banner with Read More -->
+      <div class="akbar-banner">
+        <h1>Sri Lanka Tour Packages</h1>
+        <p id="bannerDesc">
+          The Pearl of the Indian Ocean, Sri Lanka is an irresistible mix of pristine beaches, colonial heritage, impenetrable forests and magnificent temples. Enjoy tea plantation tours in Nuwara Eliya, wild leopard safaris in Yala, and iconic train rides through the misty hill country...
+          <span id="moreText" style="display:none;"> Experience world-class hospitality and perfectly planned itineraries customized for couples, families, and solo explorers alike.</span>
+        </p>
+        <button id="readMoreBtn" class="btn btn-sm btn-outline mt-2 p-0 text-primary border-0 fw-bold" style="background:transparent;color:var(--sunset)!important;">Read More</button>
+      </div>
+
+      <!-- Round Theme Filter Bubbles -->
+      <div class="theme-bubbles-scroll">
+        <div class="theme-bubble active" data-filter="All">
+          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1546708973-b3c95f3c5179?auto=format&fit=crop&w=200&q=80" alt="All"></div>
+          <span>All Packages</span>
+        </div>
+        <div class="theme-bubble" data-filter="Honeymoon">
+          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=200&q=80" alt="Honeymoon"></div>
+          <span>Honeymoon</span>
+        </div>
+        <div class="theme-bubble" data-filter="Family">
+          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1588598198327-02059341496b?auto=format&fit=crop&w=200&q=80" alt="Family"></div>
+          <span>Family</span>
+        </div>
+        <div class="theme-bubble" data-filter="Wildlife">
+          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=200&q=80" alt="Wildlife"></div>
+          <span>Wildlife</span>
+        </div>
+        <div class="theme-bubble" data-filter="Beach">
+          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80" alt="Beach"></div>
+          <span>Beach</span>
+        </div>
+        <div class="theme-bubble" data-filter="Cultural">
+          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=200&q=80" alt="Heritage"></div>
+          <span>Heritage</span>
+        </div>
+      </div>
+
+      <!-- Main Listing Section with Sidebar -->
+      <div class="package-listing-container">
+        
+        <!-- Left Filter Sidebar -->
+        <aside class="form-card" style="position:sticky;top:95px;">
+          <h3 style="font-size:1.15rem;margin-bottom:16px;">Filter Tours</h3>
+          <div class="form-group">
+            <label>Search Keyword</label>
+            <input type="text" id="filterKeyword" class="form-control" placeholder="e.g. Kandy, Ella, Yala">
+          </div>
+          <div class="form-group">
+            <label>Max Budget ($ USD)</label>
+            <input type="range" id="filterBudget" class="form-range w-100" min="500" max="4000" step="100" value="3500">
+            <small class="text-muted">Up to $<span id="budgetValue">3500</span></small>
+          </div>
+          <div class="form-group">
+            <label>Sort By</label>
+            <select id="sortBy" class="form-control">
+              <option value="popular">Most Popular</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="duration">Duration</option>
+            </select>
+          </div>
+          <button id="resetFilters" class="btn btn-outline w-100 mt-2" style="color:var(--text-main);border-color:var(--border-color);">Reset Filters</button>
+        </aside>
+
+        <!-- Right Tours List -->
+        <section>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <p class="text-muted mb-0">Showing <span id="tourCount" class="fw-bold">10</span> Sri Lanka Tour Packages</p>
+          </div>
+
+          <div id="toursListWrapper">
+            <!-- Populated via JavaScript -->
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo" style="margin-bottom:14px;">
+            <span class="logo-badge">🧭</span> Adventure Guide
+          </a>
+          <p>Your premier partner for luxury, cultural, and wildlife holiday packages across Sri Lanka.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="tours.html">Tour Packages</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="blog.html">Travel Articles</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Tour Themes</h4>
+          <ul class="footer-links">
+            <li><a href="tours.html">Honeymoon</a></li>
+            <li><a href="tours.html">Wildlife Safaris</a></li>
+            <li><a href="tours.html">Family Holidays</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Portal</h4>
+          <ul class="footer-links">
+            <li><a href="admin.html">🔐 Admin Dashboard</a></li>
+            <li><a href="sitemap.xml">XML Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Adventure Guide Sri Lanka. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://wa.me/94771234567?text=Hello%20Adventure%20Guide,%20I%20want%20to%20plan%20a%20trip!" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    💬
+  </a>
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- JavaScript for 10 Most Visited Tours & Filtering -->
+  <script type="module">
+    import { db, FALLBACK_TOURS } from './js/main.js';
+    import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    // 10 Most Visited Sri Lanka Tour Packages Data
+    const tenSriLankaTours = [
+      {
+        slug: "short-break-sri-lanka",
+        title: "A Short Break in Sri Lanka",
+        destination: "Kandy (1N) → Nuwara Eliya (1N) → Bentota (1N)",
+        category: "Family",
+        durationDays: 4,
+        durationNights: 3,
+        startingPrice: 1350,
+        currency: "USD",
+        heroImage: "https://images.unsplash.com/photo-1546708973-b3c95f3c5179?auto=format&fit=crop&w=600&q=80",
+        shortDescription: "Experience the essential highlights including Kandy's Temple of the Tooth, Nuwara Eliya tea valleys, and Bentota beaches."
+      },
+      {
+        slug: "glimpses-of-sri-lanka",
+        title: "Glimpses of Sri Lanka",
+        destination: "Sigiriya (2N) → Kandy (1N) → Bentota (1N)",
+        category: "Cultural",
+        durationDays: 5,
+        durationNights: 4,
+        startingPrice: 1650,
+        currency: "USD",
+        heroImage: "https://images.unsplash.com/photo-1588598198327-02059341496b?auto=format&fit=crop&w=600&q=80",
+        shortDescription: "Climb the majestic Sigiriya Rock Fortress, tour Dambulla Cave Temple, and unwind on southern golden beaches."
+      },
+      {
+        slug: "yala-safari-mirissa-coast",
+        title: "Wildlife & Southern Coast Escape",
+        destination: "Yala National Park (2N) → Mirissa (2N)",
+        category: "Wildlife",
+        durationDays: 5,
+        durationNights: 4,
+        startingPrice: 1890,
+        currency: "USD",
+        heroImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80",
+        shortDescription: "Thrilling jeep safaris to spot leopards and elephants in Yala, followed by whale watching in Mirissa."
+      },
+      {
+        slug: "ella-train-hill-country",
+        title: "Hill Country Train Journey & Ella",
+        destination: "Kandy (1N) → Nuwara Eliya (2N) → Ella (2N)",
+        category: "Honeymoon",
+        durationDays: 6,
+        durationNights

@@ -4,12 +4,14 @@ import { getFirestore, collection, getDocs, doc, getDoc, query, where, orderBy, 
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDummyKeyForAdventureGuideF656f", // Preserved exact config parameters structure
+  apiKey: "AIzaSyAuJoKjxmbHsYTTEN7KTcJNlvW5ysnZjLo",
   authDomain: "adventureguide-f656f.firebaseapp.com",
+  databaseURL: "https://adventureguide-f656f-default-rtdb.firebaseio.com",
   projectId: "adventureguide-f656f",
-  storageBucket: "adventureguide-f656f.appspot.com",
-  messagingSenderId: "123456789012",
-  appId: "1:123456789012:web:abcdef123456"
+  storageBucket: "adventureguide-f656f.firebasestorage.app",
+  messagingSenderId: "288678825751",
+  appId: "1:288678825751:web:6d9c81e8daea80602ab152",
+  measurementId: "G-615RM2SFRT"
 };
 
 // Initialize Firebase

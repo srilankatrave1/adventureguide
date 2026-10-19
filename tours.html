@@ -1,360 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sri Lanka Tour Packages | Adventure Guide</title>
-  <meta name="description" content="Explore 10 most visited Sri Lanka tour packages. Filter by duration, budget, and themes like Honeymoon, Wildlife, Beach, and Heritage.">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-  <!-- Google Fonts: Montserrat & Playfair Display -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    :root {
-      --font-heading: 'Playfair Display', serif;
-      --font-body: 'Montserrat', sans-serif;
-    }
-    body { font-family: var(--font-body) !important; background-color: var(--bg-main); color: var(--text-main); }
-    
-    /* Akbar Travels Inspired Header Banner */
-    .akbar-banner {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 30px;
-      margin: 40px auto 30px;
-      box-shadow: var(--shadow-sm);
-    }
-    .akbar-banner h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--text-main);
-    }
-    .akbar-banner p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 0;
-    }
-    
-    /* Round Theme Filter Bubbles */
-    .theme-bubbles-scroll {
-      display: flex;
-      gap: 24px;
-      overflow-x: auto;
-      padding: 10px 5px 25px;
-      scrollbar-width: thin;
-      justify-content: flex-start;
-    }
-    @media(min-width: 992px) {
-      .theme-bubbles-scroll { justify-content: center; }
-    }
-    .theme-bubble {
-      flex: 0 0 110px;
-      text-align: center;
-      cursor: pointer;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    .theme-bubble-img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid transparent;
-      box-shadow: var(--shadow-sm);
-      margin: 0 auto 8px;
-      transition: var(--transition);
-    }
-    .theme-bubble.active .theme-bubble-img,
-    .theme-bubble:hover .theme-bubble-img {
-      border-color: var(--sunset);
-      transform: scale(1.05);
-    }
-    .theme-bubble-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .theme-bubble span {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-main);
-      display: block;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Lanka Tour Packages | Adventure Guide</title>
+<meta name="description" content="10 hand-picked Sri Lanka tour packages. Filter by theme, duration and budget: honeymoon, wildlife, beach, heritage and family holidays.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10222b; --muted:#5b6d73; --bg:#f3f6f5; --card:#ffffff; --line:#dbe4e2;
+  --ocean:#0e5c63; --ocean-dark:#0a444a; --tea:#7fa37a; --gold:#d9992b; --gold-soft:#fbf1dc;
+  --shadow:0 1px 2px rgba(16,34,43,.06),0 8px 24px rgba(16,34,43,.07);
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--ink:#e8f0ee;--muted:#9bb0b0;--bg:#0c171b;--card:#13232a;--line:#23383f;--gold-soft:#2a2414;--shadow:0 8px 24px rgba(0,0,0,.35)}
+}
+:root[data-theme="dark"]{--ink:#e8f0ee;--muted:#9bb0b0;--bg:#0c171b;--card:#13232a;--line:#23383f;--gold-soft:#2a2414;--shadow:0 8px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-    /* Package Layout Grids */
-    .package-listing-container {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 30px;
-      align-items: start;
-      margin-bottom: 60px;
-    }
-    @media(max-width: 991px) {
-      .package-listing-container { grid-template-columns: 1fr; }
-    }
+/* Navbar */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-container{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.3rem;font-weight:600}
+.logo-badge{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--ocean);color:#fff;font-size:1.1rem}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.92rem;font-weight:500;color:var(--muted);padding:6px 0;border-bottom:2px solid transparent}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);border-color:var(--gold)}
+.nav-actions{display:flex;gap:8px}
+.icon-btn{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-size:1rem}
+#menuBtn{display:none}
+@media(max-width:820px){
+  #menuBtn{display:block}
+  .nav-links{position:absolute;top:70px;left:0;right:0;flex-direction:column;gap:0;background:var(--card);border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:14px 24px;border:0}
+}
 
-    /* Tour List Item Card */
-    .tour-list-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 20px;
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-    .tour-list-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-3px);
-    }
-    .tour-list-img {
-      position: relative;
-      height: 100%;
-      min-height: 200px;
-    }
-    .tour-list-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .tour-choice-badge {
-      position: absolute;
-      top: 12px;
-      left: 0;
-      background: var(--sunset);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 0 4px 4px 0;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .tour-list-body {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .tour-pricing-area {
-      text-align: right;
-    }
-    @media(max-width: 768px) {
-      .tour-list-card { grid-template-columns: 1fr; }
-      .tour-list-img { height: 180px; }
-      .tour-pricing-area { text-align: left; margin-top: 15px; }
-    }
-  </style>
+/* Hero */
+.hero{margin-top:70px;background:linear-gradient(120deg,rgba(10,68,74,.94),rgba(14,92,99,.78)),url("https://images.unsplash.com/photo-1546708973-b3c95f3c5179?auto=format&fit=crop&w=1600&q=70") center/cover,var(--ocean-dark);color:#fff;padding:72px 0 80px}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.1;max-width:15ch;letter-spacing:-.01em}
+.hero p{max-width:60ch;margin-top:18px;color:#d6e6e4;font-size:1.02rem}
+.hero-facts{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:30px;font-size:.92rem;color:#e9f3f1}
+.hero-facts b{color:var(--gold);font-weight:600}
+.readmore{background:none;border:0;color:var(--gold);font:inherit;font-weight:600;cursor:pointer;margin-top:8px;padding:0}
+#moreText{display:none}
+
+/* Theme bubbles */
+.themes{display:flex;gap:22px;overflow-x:auto;padding:34px 4px 14px;scrollbar-width:thin}
+@media(min-width:992px){.themes{justify-content:center}}
+.theme{flex:0 0 96px;text-align:center;background:none;border:0;cursor:pointer;color:var(--ink);font:inherit}
+.theme-img{width:88px;height:88px;border-radius:50%;margin:0 auto 8px;overflow:hidden;border:3px solid transparent;background:var(--ocean);box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
+.theme-img img{width:100%;height:100%;object-fit:cover;display:block}
+.theme:hover .theme-img{transform:scale(1.05)}
+.theme[aria-pressed="true"] .theme-img{border-color:var(--gold)}
+.theme span{font-size:.85rem;font-weight:500}
+.theme[aria-pressed="true"] span{font-weight:600}
+
+/* Layout */
+.listing{display:grid;grid-template-columns:270px 1fr;gap:30px;align-items:start;padding:20px 0 70px}
+@media(max-width:960px){.listing{grid-template-columns:1fr}}
+.filters{position:sticky;top:90px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+@media(max-width:960px){.filters{position:static}}
+.filters h2{font-family:var(--serif);font-size:1.15rem;margin-bottom:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px}
+.field input[type=text],.field select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;font-size:.9rem}
+.field input[type=range]{width:100%;accent-color:var(--ocean)}
+.field small{color:var(--muted);font-size:.8rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;border-radius:9px;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;border:1px solid transparent;transition:background .2s,border-color .2s}
+.btn-primary{background:var(--ocean);color:#fff}
+.btn-primary:hover{background:var(--ocean-dark)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ocean)}
+.btn-block{width:100%}
+.count{color:var(--muted);font-size:.92rem;margin-bottom:16px}
+.count b{color:var(--ink)}
+
+/* Tour card */
+.tour{display:grid;grid-template-columns:290px 1fr;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:22px;box-shadow:var(--shadow)}
+@media(max-width:700px){.tour{grid-template-columns:1fr}}
+.tour-media{position:relative;min-height:220px;background:linear-gradient(135deg,var(--ocean),var(--tea))}
+.tour-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:14px;left:0;background:var(--gold);color:#2a1d04;font-size:.76rem;font-weight:600;padding:5px 12px;border-radius:0 6px 6px 0}
+.theme-tag{position:absolute;left:14px;bottom:14px;background:rgba(10,24,30,.72);color:#fff;font-size:.78rem;padding:4px 10px;border-radius:20px;backdrop-filter:blur(4px)}
+.tour-body{padding:24px 26px;display:flex;flex-direction:column;gap:14px}
+.tour-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.tour-head h3{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.25}
+.duration{font-size:.88rem;font-weight:600;color:var(--ocean);background:var(--gold-soft);padding:4px 12px;border-radius:20px;white-space:nowrap;align-self:flex-start;color:var(--ink)}
+.desc{color:var(--muted);font-size:.92rem;max-width:62ch}
+
+/* Route strip: the signature element */
+.route{display:flex;align-items:flex-start;list-style:none;overflow-x:auto;padding:4px 0 2px}
+.route li{position:relative;flex:1 0 auto;min-width:96px;padding-top:20px;font-size:.84rem;font-weight:600;line-height:1.3}
+.route li small{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+.route li::before{content:"";position:absolute;top:4px;left:0;width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--ocean);z-index:1}
+.route li::after{content:"";position:absolute;top:9px;left:12px;right:0;height:2px;background:repeating-linear-gradient(90deg,var(--tea) 0 6px,transparent 6px 10px)}
+.route li:last-child::after{display:none}
+.route li:last-child::before{background:var(--gold);border-color:var(--gold)}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chips li{font-size:.78rem;padding:4px 10px;border:1px solid var(--line);border-radius:20px;color:var(--muted)}
+.tour-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px;margin-top:auto}
+.price small{display:block;color:var(--muted);font-size:.78rem}
+.price b{font-family:var(--serif);font-size:1.7rem;font-weight:600}
+.price span{color:var(--muted);font-size:.82rem}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.empty{text-align:center;padding:60px 20px;background:var(--card);border:1px dashed var(--line);border-radius:14px}
+.empty p{color:var(--muted);margin:6px 0 16px}
+
+/* Footer */
+.footer{background:var(--ocean-dark);color:#cfe2df;padding:54px 0 24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer .logo{color:#fff;margin-bottom:12px}
+.footer p{font-size:.9rem;max-width:34ch}
+.footer h4{color:#fff;font-family:var(--serif);margin-bottom:12px}
+.footer ul{list-style:none}
+.footer li{margin-bottom:8px;font-size:.9rem}
+.footer a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:18px;font-size:.84rem}
+.wa{position:fixed;right:20px;bottom:20px;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:40}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <span class="logo-badge">🧭</span> Adventure Guide
-      </a>
-      <nav aria-label="Main Navigation">
-        <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="destinations.html">Destinations</a></li>
-          <li><a href="tours.html" class="active">Tours</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle mode">🌙</button>
-        <button id="mobile-menu-btn" class="hamburger" aria-label="Menu">☰</button>
-      </div>
+<header class="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="logo"><span class="logo-badge" aria-hidden="true">🧭</span>Adventure Guide</a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="tours.html" class="active" aria-current="page">Tours</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+      <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main style="padding-top: 90px;">
+<main>
+  <section class="hero">
     <div class="container">
-      
-      <!-- Akbar Travels Inspired Top Banner with Read More -->
-      <div class="akbar-banner">
-        <h1>Sri Lanka Tour Packages</h1>
-        <p id="bannerDesc">
-          The Pearl of the Indian Ocean, Sri Lanka is an irresistible mix of pristine beaches, colonial heritage, impenetrable forests and magnificent temples. Enjoy tea plantation tours in Nuwara Eliya, wild leopard safaris in Yala, and iconic train rides through the misty hill country...
-          <span id="moreText" style="display:none;"> Experience world-class hospitality and perfectly planned itineraries customized for couples, families, and solo explorers alike.</span>
-        </p>
-        <button id="readMoreBtn" class="btn btn-sm btn-outline mt-2 p-0 text-primary border-0 fw-bold" style="background:transparent;color:var(--sunset)!important;">Read More</button>
-      </div>
-
-      <!-- Round Theme Filter Bubbles -->
-      <div class="theme-bubbles-scroll">
-        <div class="theme-bubble active" data-filter="All">
-          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1546708973-b3c95f3c5179?auto=format&fit=crop&w=200&q=80" alt="All"></div>
-          <span>All Packages</span>
-        </div>
-        <div class="theme-bubble" data-filter="Honeymoon">
-          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=200&q=80" alt="Honeymoon"></div>
-          <span>Honeymoon</span>
-        </div>
-        <div class="theme-bubble" data-filter="Family">
-          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1588598198327-02059341496b?auto=format&fit=crop&w=200&q=80" alt="Family"></div>
-          <span>Family</span>
-        </div>
-        <div class="theme-bubble" data-filter="Wildlife">
-          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=200&q=80" alt="Wildlife"></div>
-          <span>Wildlife</span>
-        </div>
-        <div class="theme-bubble" data-filter="Beach">
-          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80" alt="Beach"></div>
-          <span>Beach</span>
-        </div>
-        <div class="theme-bubble" data-filter="Cultural">
-          <div class="theme-bubble-img"><img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=200&q=80" alt="Heritage"></div>
-          <span>Heritage</span>
-        </div>
-      </div>
-
-      <!-- Main Listing Section with Sidebar -->
-      <div class="package-listing-container">
-        
-        <!-- Left Filter Sidebar -->
-        <aside class="form-card" style="position:sticky;top:95px;">
-          <h3 style="font-size:1.15rem;margin-bottom:16px;">Filter Tours</h3>
-          <div class="form-group">
-            <label>Search Keyword</label>
-            <input type="text" id="filterKeyword" class="form-control" placeholder="e.g. Kandy, Ella, Yala">
-          </div>
-          <div class="form-group">
-            <label>Max Budget ($ USD)</label>
-            <input type="range" id="filterBudget" class="form-range w-100" min="500" max="4000" step="100" value="3500">
-            <small class="text-muted">Up to $<span id="budgetValue">3500</span></small>
-          </div>
-          <div class="form-group">
-            <label>Sort By</label>
-            <select id="sortBy" class="form-control">
-              <option value="popular">Most Popular</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="duration">Duration</option>
-            </select>
-          </div>
-          <button id="resetFilters" class="btn btn-outline w-100 mt-2" style="color:var(--text-main);border-color:var(--border-color);">Reset Filters</button>
-        </aside>
-
-        <!-- Right Tours List -->
-        <section>
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <p class="text-muted mb-0">Showing <span id="tourCount" class="fw-bold">10</span> Sri Lanka Tour Packages</p>
-          </div>
-
-          <div id="toursListWrapper">
-            <!-- Populated via JavaScript -->
-          </div>
-        </section>
-
+      <h1>Sri Lanka tour packages</h1>
+      <p>Pristine beaches, colonial heritage, misty tea country and leopard-filled national parks, all within a few hours of each other.
+        <span id="moreText">Every itinerary includes private transport, a local driver-guide and hand-picked stays, and can be adjusted for couples, families or solo travellers.</span>
+      </p>
+      <button class="readmore" id="readMore" aria-expanded="false">Read more</button>
+      <div class="hero-facts">
+        <span><b>10</b> tested itineraries</span>
+        <span><b>4–10</b> days</span>
+        <span><b>Private</b> driver-guide on every trip</span>
       </div>
     </div>
-  </main>
+  </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="index.html" class="logo" style="margin-bottom:14px;">
-            <span class="logo-badge">🧭</span> Adventure Guide
-          </a>
-          <p>Your premier partner for luxury, cultural, and wildlife holiday packages across Sri Lanka.</p>
+  <div class="container">
+    <div class="themes" id="themes" role="group" aria-label="Filter by theme"></div>
+
+    <div class="listing">
+      <aside class="filters" aria-label="Tour filters">
+        <h2>Filter tours</h2>
+        <div class="field">
+          <label for="kw">Search place or tour</label>
+          <input type="text" id="kw" placeholder="Kandy, Ella, Yala">
         </div>
-        <div>
-          <h4>Explore</h4>
-          <ul class="footer-links">
-            <li><a href="tours.html">Tour Packages</a></li>
-            <li><a href="destinations.html">Destinations</a></li>
-            <li><a href="blog.html">Travel Articles</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
+        <div class="field">
+          <label for="budget">Maximum budget per person</label>
+          <input type="range" id="budget" min="1000" max="3500" step="100" value="3500">
+          <small>Up to $<span id="budgetVal">3500</span></small>
         </div>
-        <div>
-          <h4>Tour Themes</h4>
-          <ul class="footer-links">
-            <li><a href="tours.html">Honeymoon</a></li>
-            <li><a href="tours.html">Wildlife Safaris</a></li>
-            <li><a href="tours.html">Family Holidays</a></li>
-          </ul>
+        <div class="field">
+          <label for="dur">Duration</label>
+          <select id="dur">
+            <option value="all">Any length</option>
+            <option value="short">Up to 5 days</option>
+            <option value="mid">6 to 8 days</option>
+            <option value="long">9 days or more</option>
+          </select>
         </div>
-        <div>
-          <h4>Portal</h4>
-          <ul class="footer-links">
-            <li><a href="admin.html">🔐 Admin Dashboard</a></li>
-            <li><a href="sitemap.xml">XML Sitemap</a></li>
-          </ul>
+        <div class="field">
+          <label for="sort">Sort by</label>
+          <select id="sort">
+            <option value="popular">Most popular</option>
+            <option value="low">Price: low to high</option>
+            <option value="high">Price: high to low</option>
+            <option value="days">Duration</option>
+          </select>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Adventure Guide Sri Lanka. All Rights Reserved.</p>
-      </div>
+        <button class="btn btn-ghost btn-block" id="reset">Reset filters</button>
+      </aside>
+
+      <section aria-live="polite">
+        <p class="count">Showing <b id="count">10</b> Sri Lanka tour packages</p>
+        <div id="list"></div>
+      </section>
     </div>
-  </footer>
+  </div>
+</main>
 
-  <!-- Floating WhatsApp CTA -->
-  <a href="https://wa.me/94771234567?text=Hello%20Adventure%20Guide,%20I%20want%20to%20plan%20a%20trip!" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
-    💬
-  </a>
-  <button id="back-to-top" aria-label="Back to top">↑</button>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-badge" aria-hidden="true">🧭</span>Adventure Guide</a>
+        <p>Private holidays across Sri Lanka, planned by people who live here.</p>
+      </div>
+      <div><h4>Explore</h4><ul>
+        <li><a href="tours.html">Tour packages</a></li><li><a href="destinations.html">Destinations</a></li>
+        <li><a href="blog.html">Travel articles</a></li><li><a href="contact.html">Contact us</a></li></ul></div>
+      <div><h4>Themes</h4><ul>
+        <li><a href="#" data-theme-link="Honeymoon">Honeymoon</a></li><li><a href="#" data-theme-link="Wildlife">Wildlife</a></li>
+        <li><a href="#" data-theme-link="Family">Family</a></li><li><a href="#" data-theme-link="Beach">Beach</a></li></ul></div>
+      <div><h4>Portal</h4><ul>
+        <li><a href="admin.html">Admin dashboard</a></li><li><a href="sitemap.xml">XML sitemap</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Adventure Guide Sri Lanka. All rights reserved.</div>
+  </div>
+</footer>
 
-  <!-- JavaScript for 10 Most Visited Tours & Filtering -->
-  <script type="module">
-    import { db, FALLBACK_TOURS } from './js/main.js';
-    import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+<a class="wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" href="https://wa.me/94771234567?text=Hello%20Adventure%20Guide%2C%20I%20want%20to%20plan%20a%20trip!">💬</a>
 
-    // 10 Most Visited Sri Lanka Tour Packages Data
-    const tenSriLankaTours = [
-      {
-        slug: "short-break-sri-lanka",
-        title: "A Short Break in Sri Lanka",
-        destination: "Kandy (1N) → Nuwara Eliya (1N) → Bentota (1N)",
-        category: "Family",
-        durationDays: 4,
-        durationNights: 3,
-        startingPrice: 1350,
-        currency: "USD",
-        heroImage: "https://images.unsplash.com/photo-1546708973-b3c95f3c5179?auto=format&fit=crop&w=600&q=80",
-        shortDescription: "Experience the essential highlights including Kandy's Temple of the Tooth, Nuwara Eliya tea valleys, and Bentota beaches."
-      },
-      {
-        slug: "glimpses-of-sri-lanka",
-        title: "Glimpses of Sri Lanka",
-        destination: "Sigiriya (2N) → Kandy (1N) → Bentota (1N)",
-        category: "Cultural",
-        durationDays: 5,
-        durationNights: 4,
-        startingPrice: 1650,
-        currency: "USD",
-        heroImage: "https://images.unsplash.com/photo-1588598198327-02059341496b?auto=format&fit=crop&w=600&q=80",
-        shortDescription: "Climb the majestic Sigiriya Rock Fortress, tour Dambulla Cave Temple, and unwind on southern golden beaches."
-      },
-      {
-        slug: "yala-safari-mirissa-coast",
-        title: "Wildlife & Southern Coast Escape",
-        destination: "Yala National Park (2N) → Mirissa (2N)",
-        category: "Wildlife",
-        durationDays: 5,
-        durationNights: 4,
-        startingPrice: 1890,
-        currency: "USD",
-        heroImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80",
-        shortDescription: "Thrilling jeep safaris to spot leopards and elephants in Yala, followed by whale watching in Mirissa."
-      },
-      {
-        slug: "ella-train-hill-country",
-        title: "Hill Country Train Journey & Ella",
-        destination: "Kandy (1N) → Nuwara Eliya (2N) → Ella (2N)",
-        category: "Honeymoon",
-        durationDays: 6,
-        durationNights
+<script>
+const U = id => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=700&q=75`;
+const TOURS = [
+ {slug:"short-break-sri-lanka",title:"A Short Break in Sri Lanka",theme:"Family",days:4,price:1350,rank:5,badge:"",
+  img:U("photo-1546708973-b3c95f3c5179"),route:[["Kandy",1],["Nuwara Eliya",1],["Bentota",1]],
+  desc:"The essentials in four days: Kandy's Temple of the Tooth, tea valleys in Nuwara Eliya and a beach finish in Bentota.",
+  tags:["Temple of the Tooth","Tea factory visit","Beach time"]},
+ {slug:"glimpses-of-sri-lanka",title:"Glimpses of Sri Lanka",theme:"Cultural",days:5,price:1650,rank:8,badge:"Traveller's choice",
+  img:U("photo-1588598198327-02059341496b"),route:[["Sigiriya",2],["Kandy",1],["Bentota",1]],
+  desc:"Climb Sigiriya Rock, explore Dambulla Cave Temple and unwind on the southwest coast.",
+  tags:["Sigiriya Rock","Dambulla caves","Village lunch"]},
+ {slug:"yala-safari-mirissa-coast",title:"Wildlife and Southern Coast Escape",theme:"Wildlife",days:5,price:1890,rank:9,badge:"Best for wildlife",
+  img:U("photo-1534447677768-be436bb09401"),route:[["Yala",2],["Mirissa",2]],
+  desc:"Jeep safaris for leopards and elephants in Yala, then whale watching off the coast at Mirissa.",
+  tags:["Yala jeep safari","Whale watching","Galle Fort"]},
+ {slug:"ella-train-hill-country",title:"Hill Country Train Journey and Ella",theme:"Honeymoon",days:6,price:1750,rank:10,badge:"Most booked",
+  img:U("photo-1552465011-b4e21bf6e79a"),route:[["Kandy",1],["Nuwara Eliya",2],["Ella",2]],
+  desc:"Ride the scenic Kandy to Ella train, walk Nine Arch Bridge and watch sunrise from Little Adam's Peak.",
+  tags:["Scenic train","Nine Arch Bridge","Private dinner"]},
+ {slug:"romantic-beach-honeymoon",title:"Romantic Beaches Honeymoon",theme:"Honeymoon",days:7,price:2250,rank:7,badge:"",
+  img:U("photo-1507525428034-b723cf961d3e"),route:[["Negombo",1],["Bentota",3],["Galle",3]],
+  desc:"Sunset dinners, spa time and slow days between Bentota's beaches and the ramparts of Galle Fort.",
+  tags:["Candlelit dinner","Couples spa","Galle Fort"]},
+ {slug:"cultural-triangle-explorer",title:"Cultural Triangle Explorer",theme:"Cultural",days:8,price:2100,rank:6,badge:"",
+  img:U("photo-1506744038136-46273834b3fb"),route:[["Anuradhapura",1],["Polonnaruwa",1],["Sigiriya",2],["Kandy",2],["Colombo",1]],
+  desc:"Sri Lanka's ancient capitals and UNESCO sites, from sacred Anuradhapura to hilltop Kandy.",
+  tags:["3 UNESCO sites","Cooking class","Expert guide"]},
+ {slug:"leopards-and-elephants-safari",title:"Leopards and Elephants Safari",theme:"Wildlife",days:7,price:2400,rank:5,badge:"",
+  img:U("photo-1534447677768-be436bb09401"),route:[["Wilpattu",2],["Minneriya",2],["Yala",3]],
+  desc:"Three national parks, three ecosystems: Wilpattu's lakes, Minneriya's elephant gathering and Yala's leopards.",
+  tags:["3 safaris","Naturalist guide","Eco lodges"]},
+ {slug:"tea-country-and-coast",title:"Tea Country and Coast",theme:"Beach",days:9,price:2650,rank:6,badge:"",
+  img:U("photo-1588598198327-02059341496b"),route:[["Kandy",2],["Nuwara Eliya",2],["Ella",2],["Mirissa",3]],
+  desc:"Mountains first, ocean last: tea estates and waterfalls, then three easy beach days in the south.",
+  tags:["Tea estate stay","Hiking","Beach finish"]},
+ {slug:"family-adventure-sri-lanka",title:"Family Adventure Holiday",theme:"Family",days:8,price:2300,rank:7,badge:"Family favourite",
+  img:U("photo-1546708973-b3c95f3c5179"),route:[["Pinnawala",1],["Sigiriya",2],["Kandy",2],["Bentota",3]],
+  desc:"Elephant orphanage, village safari, cooking classes and a resort stay with a pool, planned around children.",
+  tags:["Kid-friendly","Elephant orphanage","Resort pool"]},
+ {slug:"grand-sri-lanka-circuit",title:"The Grand Sri Lanka Circuit",theme:"Cultural",days:10,price:3200,rank:8,badge:"Signature tour",
+  img:U("photo-1552465011-b4e21bf6e79a"),route:[["Colombo",1],["Sigiriya",2],["Kandy",2],["Ella",2],["Yala",1],["Galle",2]],
+  desc:"Our complete island loop: heritage, hill country, safari and the south coast in ten unhurried days.",
+  tags:["All highlights","Boutique stays","Private guide"]}
+];
+const THEMES=[["All","All packages",U("photo-1546708973-b3c95f3c5179")],["Honeymoon","Honeymoon",U("photo-1507525428034-b723cf961d3e")],["Family","Family",U("photo-1588598198327-02059341496b")],["Wildlife","Wildlife",U("photo-1534447677768-be436bb09401")],["Beach","Beach",U("photo-1506744038136-46273834b3fb")],["Cultural","Heritage",U("photo-1552465011-b4e21bf6e79a")]];
+const LABEL={Cultural:"Heritage"};
+const $=s=>document.querySelector(s);
+const state={theme:"All"};
+const imgTag=(src,alt,eager)=>`<img src="${src}" alt="${alt}" loading="${eager?'eager':'lazy'}" onerror="this.remove()">`;
+
+// theme bubbles
+$("#themes").innerHTML=THEMES.map(([k,l,i])=>`<button class="theme" data-k="${k}" aria-pressed="${k==='All'}"><div class="theme-img">${imgTag(i,'')}</div><span>${l}</span></button>`).join("");
+function setTheme(k){state.theme=k;document.querySelectorAll(".theme").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===k));render()}
+$("#themes").addEventListener("click",e=>{const b=e.target.closest(".theme");if(b)setTheme(b.dataset.k)});
+document.querySelectorAll("[data-theme-link]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();setTheme(a.dataset.themeLink);$("#themes").scrollIntoView({behavior:"smooth",block:"center"})}));
+
+function card(t){
+  const nights=t.days-1, stops=t.route.map(([n,x])=>`<li>${n}<small>${x} night${x>1?'s':''}</small></li>`).join("");
+  const wa=`https://wa.me/94771234567?text=${encodeURIComponent("Hello, I'd like to book: "+t.title)}`;
+  return `<article class="tour">
+    <div class="tour-media">${imgTag(t.img,t.title)}${t.badge?`<span class="tag">${t.badge}</span>`:""}<span class="theme-tag">${LABEL[t.theme]||t.theme}</span></div>
+    <div class="tour-body">
+      <div class="tour-head"><h3>${t.title}</h3><span class="duration">${t.days} days, ${nights} nights</span></div>
+      <p class="desc">${t.desc}</p>
+      <ol class="route" aria-label="Route">${stops}</ol>
+      <ul class="chips">${t.tags.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <div class="tour-foot">
+        <div class="price"><small>From</small><b>$${t.price.toLocaleString()}</b> <span>per person</span></div>
+        <div class="actions"><a class="btn btn-ghost" href="tour-detail.html?slug=${t.slug}">View itinerary</a><a class="btn btn-primary" href="${wa}" target="_blank" rel="noopener">Enquire now</a></div>
+      </div>
+    </div></article>`;
+}
+
+function render(){
+  const kw=$("#kw").value.trim().toLowerCase(), max=+$("#budget").value, d=$("#dur").value, s=$("#sort").value;
+  let r=TOURS.filter(t=>(state.theme==="All"||t.theme===state.theme)&&t.price<=max
+    &&(!kw||(t.title+" "+t.route.map(x=>x[0]).join(" ")+" "+t.tags.join(" ")).toLowerCase().includes(kw))
+    &&(d==="all"||(d==="short"&&t.days<=5)||(d==="mid"&&t.days>=6&&t.days<=8)||(d==="long"&&t.days>=9)));
+  r.sort((a,b)=>s==="low"?a.price-b.price:s==="high"?b.price-a.price:s==="days"?a.days-b.days:b.rank-a.rank);
+  $("#count").textContent=r.length;
+  $("#list").innerHTML=r.length?r.map(card).join(""):`<div class="empty"><h3>No tours match these filters</h3><p>Try a higher budget or a different theme.</p><button class="btn btn-primary" id="emptyReset">Reset filters</button></div>`;
+  const er=$("#emptyReset"); if(er) er.onclick=resetAll;
+}
+function resetAll(){$("#kw").value="";$("#budget").value=3500;$("#budgetVal").textContent=3500;$("#dur").value="all";$("#sort").value="popular";setTheme("All")}
+["kw","dur","sort"].forEach(i=>$("#"+i).addEventListener("input",render));
+$("#budget").addEventListener("input",e=>{$("#budgetVal").textContent=e.target.value;render()});
+$("#reset").addEventListener("click",resetAll);
+
+// read more, menu, theme
+$("#readMore").onclick=function(){const m=$("#moreText"),o=m.style.display==="inline";m.style.display=o?"none":"inline";this.textContent=o?"Read more":"Read less";this.setAttribute("aria-expanded",!o)};
+$("#menuBtn").onclick=function(){const o=$("#navLinks").classList.toggle("open");this.setAttribute("aria-expanded",o)};
+$("#themeBtn").onclick=function(){const r=document.documentElement,dark=getComputedStyle(r).getPropertyValue("--bg").trim()==="#0c171b";r.dataset.theme=dark?"light":"dark";this.textContent=dark?"🌙":"☀️"};
+
+render();
+</script>
+</body>
+</html>

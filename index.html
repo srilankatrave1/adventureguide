@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="z2mNq2fUDR-S8nRLFxIH2fQ2w6DwBw3FSoSHUXLblMY" />
+  <title>Adventure Guide | Explore Sri Lanka — Travel Guides, Itineraries & Stories</title>
+  <meta name="description" content="Discover Sri Lanka with Adventure Guide. Expert travel articles on Sigiriya, Ella, Yala safaris, southern surf beaches, hill country trains, and cultural gems.">
+  <meta property="og:title" content="Adventure Guide — Sri Lanka Travel Magazine">
+  <meta property="og:description" content="Curated itineraries, wildlife safari guides, mountain treks, and coastal escapes across Sri Lanka.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Apply Montserrat Font Across the Home Page -->
+  <style>
+    :root {
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+    body, h1, h2, h3, h4, h5, h6, p, a, span, li, input, button, .logo, .testimonial-quote {
+      font-family: 'Montserrat', sans-serif !important;
+    }
+  </style>
+
+  <!-- Small add-on styles for the new sections (reuses your existing theme, works in light and dark mode) -->
+  <style>
+    .ag-intro {
+      max-width: 820px;
+      margin: 0 auto 44px;
+      text-align: center;
+      line-height: 1.85;
+    }
+    .ag-intro p + p { margin-top: 16px; }
+
+    .ag-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    /* Horizontal scrollable row */
+    .ag-scroll {
+      display: flex;
+      gap: 22px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 8px 4px 22px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .ag-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      padding: 28px;
+      border-radius: 16px;
+      border: 1px solid rgba(127, 127, 127, 0.25);
+      background: rgba(127, 127, 127, 0.07);
+    }
+    .ag-card .ag-icon { font-size: 2rem; display: block; margin-bottom: 12px; }
+    .ag-card h3 { margin-bottom: 10px; }
+    .ag-card p { line-height: 1.7; }
+    .ag-hint { text-align: center; font-size: 0.85rem; opacity: 0.7; margin-top: 4px; }
+
+    .ag-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .ag-chip {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(127, 127, 127, 0.35);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .ag-cta-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 600px) {
+      .ag-card { flex-basis: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="loader-compass"></div>
+    <span>ADVENTURE GUIDE</span>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">🧭</span> Adventure Guide
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="blog.html">Tours</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark or light mode">🌙</button>
+        <button id="mobile-menu-btn" class="hamburger" aria-label="Open navigation menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <span class="hero-badge">🌴 The Pearl of the Indian Ocean</span>
+        <h1>Experience Sri Lanka's <br><span id="typewriter" class="typewriter-text">Misty Tea Hills</span></h1>
+        <p>Handcrafted travel stories, off-the-beaten-path itineraries, and insider tips for exploring Sri Lanka's wildlife, peaks, and coastlines.</p>
+        <form class="hero-search" action="blog.html" method="GET" role="search">
+          <input type="search" name="q" placeholder="Search guides (e.g., Sigiriya, Ella train, Yala, Mirissa)..." aria-label="Search travel guides">
+          <button type="submit" class="btn btn-primary">Search Guides</button>
+        </form>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="destinations.html" class="btn btn-primary">Explore Destinations</a>
+          <a href="blog.html" class="btn btn-outline">Read Travel Blog</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animated Counters -->
+    <section class="stats-bar" aria-label="Travel statistics">
+      <div class="container stats-grid">
+        <div class="stat-item">
+          <h3 class="counter" data-target="48">0</h3>
+          <p>Curated Destinations</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="counter" data-target="125">0</h3>
+          <p>In-Depth Travel Guides</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="counter" data-target="24000">0</h3>
+          <p>Monthly Readers</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="counter" data-target="8">0</h3>
+          <p>UNESCO Heritage Sites</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Welcome / Intro (Sri Lanka travel agency introduction) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Welcome to Adventure Guide</span>
+          <h2 class="section-title">Discover Sri Lanka the Way It Deserves to Be Seen</h2>
+          <p class="section-desc">Ancient temples, misty tea hills, golden beaches and wild jungle safaris, all on one island.</p>
+        </div>
+        <div class="ag-intro reveal">
+          <p>We are a Sri Lanka travel agency built on local knowledge and genuine care for our guests. Our team lives here, travels these roads regularly and knows which sunrise viewpoint is worth the early alarm and which tourist stop you can skip.</p>
+          <p>Every itinerary starts with a conversation about what you enjoy. Some travellers want slow beach days and good food, others want train rides through the hill country and leopard sightings at dawn. We shape the trip around you, never around a fixed template.</p>
+        </div>
+        <div class="ag-cta-row" style="margin-top:0;">
+          <a href="contact.html" class="btn btn-primary">Plan My Trip</a>
+          <a href="destinations.html" class="btn btn-outline">View Destinations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Why Travellers Choose Us -->
+    <section class="section bg-sand">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Why Travel With Us</span>
+          <h2 class="section-title">Why Travellers Choose Us</h2>
+          <p class="section-desc">Local insight, flexible planning and real people behind every trip.</p>
+        </div>
+        <div class="ag-grid">
+          <div class="season-card reveal">
+            <span class="season-months">Local Expertise</span>
+            <h3>Based on the Island</h3>
+            <p>As a Sri Lanka travel company based on the island, we handle everything first-hand, from vetted hotels to trusted drivers and guides.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">Fully Tailor-Made</span>
+            <h3>Planned Around You</h3>
+            <p>Your dates, pace, budget and interests drive the plan. Every route is adjusted until it feels right.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">Complete Support</span>
+            <h3>Start to Finish</h3>
+            <p>From your first enquiry to your airport transfer home, a real person is always a message away.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">Honest Advice</span>
+            <h3>No Guesswork</h3>
+            <p>We tell you the best season for each region, realistic travel times and what is genuinely worth your time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Destinations (All 8 Required Locations) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Iconic Places</span>
+          <h2 class="section-title">Featured Sri Lanka Destinations</h2>
+          <p class="section-desc">From ancient royal citadels in the Cultural Triangle to sun-drenched southern surf towns.</p>
+        </div>
+        <div class="grid-4" id="home-destinations-grid"></div>
+      </div>
+    </section>
+
+    <!-- NEW: Experiences Across the Island (horizontal scroll row) -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Things To Experience</span>
+          <h2 class="section-title">Experiences Across the Island</h2>
+          <p class="section-desc">Swipe or scroll to see what your journey could include.</p>
+        </div>
+        <div class="ag-scroll" tabindex="0" aria-label="Experiences across Sri Lanka, scrollable">
+          <div class="ag-card">
+            <span class="ag-icon">🛕</span>
+            <h3>Culture and Heritage</h3>
+            <p>Climb the rock fortress of Sigiriya, wander the sacred city of Anuradhapura and visit the Temple of the Tooth in Kandy.</p>
+          </div>
+          <div class="ag-card">
+            <span class="ag-icon">🚂</span>
+            <h3>Hill Country and Tea Trails</h3>
+            <p>Ride the famous train through Ella and Nuwara Eliya, walk through tea plantations and watch the mist roll over the valleys.</p>
+          </div>
+          <div class="ag-card">
+            <span class="ag-icon">🐘</span>
+            <h3>Wildlife and Nature</h3>
+            <p>Spot elephants in Minneriya, leopards in Yala and blue whales off the southern coast.</p>
+          </div>
+          <div class="ag-card">
+            <span class="ag-icon">🏖️</span>
+            <h3>Beaches and Coastal Escapes</h3>
+            <p>Relax in Mirissa, Unawatuna, Trincomalee or Arugam Bay, with surf, snorkelling and seafood on the shore.</p>
+          </div>
+          <div class="ag-card">
+            <span class="ag-icon">🧘</span>
+            <h3>Wellness and Slow Travel</h3>
+            <p>Take time for Ayurveda retreats, yoga by the sea and quiet stays in colonial villas.</p>
+          </div>
+        </div>
+        <p class="ag-hint">← Scroll sideways to see more →</p>
+      </div>
+    </section>
+
+    <!-- Latest Articles -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Fresh From the Journal</span>
+          <h2 class="section-title">Latest Travel Articles</h2>
+          <p class="section-desc">Field-tested itineraries, transport hacks, and photography guides written on the road.</p>
+        </div>
+        <div class="grid-3" id="home-latest-articles"></div>
+        <div style="text-align:center;margin-top:42px;">
+          <a href="blog.html" class="btn btn-teal">View All Articles →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel Categories -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Browse By Interest</span>
+          <h2 class="section-title">Travel Categories</h2>
+          <p class="section-desc">Pick your travel style to filter stories tailored to your Sri Lankan adventure.</p>
+        </div>
+        <div class="category-grid">
+          <a href="blog.html?category=Beaches" class="category-card reveal">
+            <span class="category-icon">🏖️</span>
+            <h3>Beaches</h3>
+            <p>Mirissa, Unawatuna & Arugam Bay</p>
+          </a>
+          <a href="blog.html?category=Wildlife" class="category-card reveal">
+            <span class="category-icon">🐆</span>
+            <h3>Wildlife</h3>
+            <p>Leopards, Elephants & Blue Whales</p>
+          </a>
+          <a href="blog.html?category=Culture" class="category-card reveal">
+            <span class="category-icon">🛕</span>
+            <h3>Culture</h3>
+            <p>Sigiriya, Kandy, Galle & Jaffna</p>
+          </a>
+          <a href="blog.html?category=Hill Country" class="category-card reveal">
+            <span class="category-icon">🚂</span>
+            <h3>Hill Country</h3>
+            <p>Ella Trains & Ceylon Tea Trails</p>
+          </a>
+          <a href="blog.html?category=Food" class="category-card reveal">
+            <span class="category-icon">🍛</span>
+            <h3>Food</h3>
+            <p>Hoppers, Kottu & Rice and Curry</p>
+          </a>
+          <a href="blog.html?category=Adventure" class="category-card reveal">
+            <span class="category-icon">🥾</span>
+            <h3>Adventure</h3>
+            <p>Surfing, Rafting & Peak Treks</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: How It Works (Holiday planned in three steps) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Simple Planning</span>
+          <h2 class="section-title">Your Holiday, Planned in Three Steps</h2>
+          <p class="section-desc">From first idea to airport pick-up, we keep it clear and stress-free.</p>
+        </div>
+        <div class="season-grid">
+          <div class="season-card reveal">
+            <span class="season-months">Step 1</span>
+            <h3>Tell Us Your Ideas</h3>
+            <p>Share your travel dates, interests and group size.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">Step 2</span>
+            <h3>Receive Your Custom Plan</h3>
+            <p>We send a detailed itinerary and clear pricing, and we refine it with you until it is right.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">Step 3</span>
+            <h3>Travel With Confidence</h3>
+            <p>Enjoy your trip with 24/7 on-ground support from our team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Time to Visit -->
+    <section class="section bg-sand">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Seasonal Planner</span>
+          <h2 class="section-title">Best Time to Visit Sri Lanka</h2>
+          <p class="section-desc">Thanks to two complementary monsoon seasons, Sri Lanka is a year-round tropical destination.</p>
+        </div>
+        <div class="season-grid">
+          <div class="season-card reveal">
+            <span class="season-months">December – April</span>
+            <h3>West & South Coast + Hill Country</h3>
+            <p>Ideal sunshine for Galle, Mirissa, Bentota, Colombo, Yala safaris, and crisp clear mornings in Ella and Nuwara Eliya.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">May – September</span>
+            <h3>East Coast & Northern Peninsula</h3>
+            <p>Prime dry weather for surfing in Arugam Bay, snorkelling Pigeon Island in Trincomalee, and exploring Jaffna.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">July – August</span>
+            <h3>Cultural Triangle & Kandy Perahera</h3>
+            <p>Witness the grand Kandy Esala Perahera festival and the Great Elephant Gathering at Minneriya National Park.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Holiday Specialists for Every Kind of Traveller -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">For Every Traveller</span>
+          <h2 class="section-title">Sri Lanka Holiday Specialists for Every Kind of Traveller</h2>
+        </div>
+        <div class="ag-intro reveal">
+          <p>As Sri Lanka holiday specialists, we plan trips for honeymooners, families with children, solo adventurers, friends travelling together and groups celebrating special occasions. Whether you have five days or three weeks, we will build a route that avoids rushed transfers and long, tiring drives.</p>
+        </div>
+        <div class="ag-chips reveal">
+          <span class="ag-chip">💑 Honeymooners</span>
+          <span class="ag-chip">👨‍👩‍👧 Families</span>
+          <span class="ag-chip">🎒 Solo Travellers</span>
+          <span class="ag-chip">👯 Friends</span>
+          <span class="ag-chip">🎉 Special Occasions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Trusted Travel Specialists -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Our Promise</span>
+          <h2 class="section-title">Trusted Sri Lanka Travel Specialists</h2>
+        </div>
+        <div class="ag-intro reveal" style="margin-bottom:0;">
+          <p>Our job is simple: take the stress out of planning so you can enjoy the journey. As dedicated Sri Lanka travel specialists, we work with hand-picked hotels, licensed guides and reliable transport partners across the island.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Gallery with Lightbox -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Visual Postcards</span>
+          <h2 class="section-title">Moments Across the Island</h2>
+          <p class="section-desc">Click any photo to view in full-screen lightbox mode.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item reveal" data-caption="Sunrise mist over Sigiriya Lion Rock Fortress">
+            <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=900&q=80" alt="Sigiriya Lion Rock" loading="lazy">
+            <div class="gallery-caption">Sigiriya Lion Rock</div>
+          </div>
+          <div class="gallery-item reveal" data-caption="Blue train crossing the Nine Arch Bridge in Ella">
+            <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=900&q=80" alt="Nine Arch Bridge Ella" loading="lazy">
+            <div class="gallery-caption">Nine Arch Bridge, Ella</div>
+          </div>
+          <div class="gallery-item reveal" data-caption="Wild Asian elephants in Yala National Park">
+            <img src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=900&q=80" alt="Yala National Park Elephants" loading="lazy">
+            <div class="gallery-caption">Yala National Park</div>
+          </div>
+          <div class="gallery-item reveal" data-caption="Golden hour palms along Mirissa Beach">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Mirissa Beach" loading="lazy">
+            <div class="gallery-caption">Mirissa Southern Coast</div>
+          </div>
+          <div class="gallery-item reveal" data-caption="Colonial lighthouse inside Galle Dutch Fort">
+            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=900&q=80" alt="Galle Dutch Fort" loading="lazy">
+            <div class="gallery-caption">Galle Dutch Fort</div>
+          </div>
+          <div class="gallery-item reveal" data-caption="Emerald tea terraces in Nuwara Eliya">
+            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=80" alt="Nuwara Eliya Tea Hills" loading="lazy">
+            <div class="gallery-caption">Nuwara Eliya Tea Estates</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">✕</button>
+        <img id="lightbox-img" src="" alt="Expanded view">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <!-- Testimonials Slider -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Reader Love</span>
+          <h2 class="section-title">What Fellow Travellers Say</h2>
+        </div>
+        <div class="testimonial-box reveal">
+          <p class="testimonial-quote" id="testimonial-quote">"Adventure Guide planned our entire 2-week route from Sigiriya to Mirissa. The sunrise tip for Lion Rock saved us hours!"</p>
+          <p class="testimonial-author" id="testimonial-author">Sarah & Liam — Melbourne, Australia</p>
+          <div class="slider-controls">
+            <button class="filter-btn" id="prev-testimonial" aria-label="Previous testimonial">← Prev</button>
+            <button class="filter-btn" id="next-testimonial" aria-label="Next testimonial">Next →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Ready to Start Planning (CTA) -->
+    <section class="section">
+      <div class="container">
+        <div class="newsletter-box reveal">
+          <h2>Ready to Start Planning?</h2>
+          <p>Tell us when you want to travel and what you love, and we will send you a personalised itinerary within one to two working days.</p>
+          <div class="ag-cta-row">
+            <a href="contact.html" class="btn btn-primary">Request Your Free Itinerary</a>
+            <a href="destinations.html" class="btn btn-outline">Browse Destinations</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section">
+      <div class="container">
+        <div class="newsletter-box reveal">
+          <h2>Get Our Free 14-Day Sri Lanka Route Map</h2>
+          <p>Join 15,000+ travellers receiving new Sri Lanka articles, train booking alerts, and hidden homestay tips.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email address..." required aria-label="Email address">
+            <button type="submit" class="btn btn-primary">Subscribe Free</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo" style="margin-bottom:14px;">
+            <span class="logo-badge">🧭</span> Adventure Guide
+          </a>
+          <p>Your independent digital travel magazine dedicated to authentic adventures, cultural heritage, and sustainable travel across Sri Lanka.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html">All Destinations</a></li>
+            <li><a href="blog.html">Travel Articles</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Top Regions</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html?category=Culture">Cultural Triangle</a></li>
+            <li><a href="blog.html?category=Hill Country">Ella & Tea Country</a></li>
+            <li><a href="blog.html?category=Wildlife">Yala & Wilpattu</a></li>
+            <li><a href="blog.html?category=Beaches">Southern Coast</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Publisher Tools</h4>
+          <ul class="footer-links">
+            <li><a href="admin.html">✍️ Write New Article</a></li>
+            <li><a href="posts/posts.json">Posts JSON Feed</a></li>
+            <li><a href="https://github.com/srilankatrave1/adventureguide" target="_blank" rel="noopener">GitHub Repository</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Adventure Guide Sri Lanka. Built for GitHub Pages.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

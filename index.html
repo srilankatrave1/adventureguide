@@ -29,6 +29,73 @@
       font-family: 'Montserrat', sans-serif !important;
     }
   </style>
+
+  <!-- Small add-on styles for the new sections (reuses your existing theme, works in light and dark mode) -->
+  <style>
+    .ag-intro {
+      max-width: 820px;
+      margin: 0 auto 44px;
+      text-align: center;
+      line-height: 1.85;
+    }
+    .ag-intro p + p { margin-top: 16px; }
+
+    .ag-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    /* Horizontal scrollable row */
+    .ag-scroll {
+      display: flex;
+      gap: 22px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 8px 4px 22px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .ag-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      padding: 28px;
+      border-radius: 16px;
+      border: 1px solid rgba(127, 127, 127, 0.25);
+      background: rgba(127, 127, 127, 0.07);
+    }
+    .ag-card .ag-icon { font-size: 2rem; display: block; margin-bottom: 12px; }
+    .ag-card h3 { margin-bottom: 10px; }
+    .ag-card p { line-height: 1.7; }
+    .ag-hint { text-align: center; font-size: 0.85rem; opacity: 0.7; margin-top: 4px; }
+
+    .ag-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .ag-chip {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(127, 127, 127, 0.35);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .ag-cta-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 600px) {
+      .ag-card { flex-basis: 260px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -102,6 +169,58 @@
       </div>
     </section>
 
+    <!-- NEW: Welcome / Intro (Sri Lanka travel agency introduction) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Welcome to Adventure Guide</span>
+          <h2 class="section-title">Discover Sri Lanka the Way It Deserves to Be Seen</h2>
+          <p class="section-desc">Ancient temples, misty tea hills, golden beaches and wild jungle safaris, all on one island.</p>
+        </div>
+        <div class="ag-intro reveal">
+          <p>We are a Sri Lanka travel agency built on local knowledge and genuine care for our guests. Our team lives here, travels these roads regularly and knows which sunrise viewpoint is worth the early alarm and which tourist stop you can skip.</p>
+          <p>Every itinerary starts with a conversation about what you enjoy. Some travellers want slow beach days and good food, others want train rides through the hill country and leopard sightings at dawn. We shape the trip around you, never around a fixed template.</p>
+        </div>
+        <div class="ag-cta-row" style="margin-top:0;">
+          <a href="contact.html" class="btn btn-primary">Plan My Trip</a>
+          <a href="destinations.html" class="btn btn-outline">View Destinations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Why Travellers Choose Us -->
+    <section class="section bg-sand">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Why Travel With Us</span>
+          <h2 class="section-title">Why Travellers Choose Us</h2>
+          <p class="section-desc">Local insight, flexible planning and real people behind every trip.</p>
+        </div>
+        <div class="ag-grid">
+          <div class="season-card reveal">
+            <span class="season-months">Local Expertise</span>
+            <h3>Based on the Island</h3>
+            <p>As a Sri Lanka travel company based on the island, we handle everything first-hand, from vetted hotels to trusted drivers and guides.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">Fully Tailor-Made</span>
+            <h3>Planned Around You</h3>
+            <p>Your dates, pace, budget and interests drive the plan. Every route is adjusted until it feels right.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">Complete Support</span>
+            <h3>Start to Finish</h3>
+            <p>From your first enquiry to your airport transfer home, a real person is always a message away.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">Honest Advice</span>
+            <h3>No Guesswork</h3>
+            <p>We tell you the best season for each region, realistic travel times and what is genuinely worth your time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Featured Destinations (All 8 Required Locations) -->
     <section class="section">
       <div class="container">
@@ -114,8 +233,47 @@
       </div>
     </section>
 
-    <!-- Latest Articles -->
+    <!-- NEW: Experiences Across the Island (horizontal scroll row) -->
     <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Things To Experience</span>
+          <h2 class="section-title">Experiences Across the Island</h2>
+          <p class="section-desc">Swipe or scroll to see what your journey could include.</p>
+        </div>
+        <div class="ag-scroll" tabindex="0" aria-label="Experiences across Sri Lanka, scrollable">
+          <div class="ag-card">
+            <span class="ag-icon">🛕</span>
+            <h3>Culture and Heritage</h3>
+            <p>Climb the rock fortress of Sigiriya, wander the sacred city of Anuradhapura and visit the Temple of the Tooth in Kandy.</p>
+          </div>
+          <div class="ag-card">
+            <span class="ag-icon">🚂</span>
+            <h3>Hill Country and Tea Trails</h3>
+            <p>Ride the famous train through Ella and Nuwara Eliya, walk through tea plantations and watch the mist roll over the valleys.</p>
+          </div>
+          <div class="ag-card">
+            <span class="ag-icon">🐘</span>
+            <h3>Wildlife and Nature</h3>
+            <p>Spot elephants in Minneriya, leopards in Yala and blue whales off the southern coast.</p>
+          </div>
+          <div class="ag-card">
+            <span class="ag-icon">🏖️</span>
+            <h3>Beaches and Coastal Escapes</h3>
+            <p>Relax in Mirissa, Unawatuna, Trincomalee or Arugam Bay, with surf, snorkelling and seafood on the shore.</p>
+          </div>
+          <div class="ag-card">
+            <span class="ag-icon">🧘</span>
+            <h3>Wellness and Slow Travel</h3>
+            <p>Take time for Ayurveda retreats, yoga by the sea and quiet stays in colonial villas.</p>
+          </div>
+        </div>
+        <p class="ag-hint">← Scroll sideways to see more →</p>
+      </div>
+    </section>
+
+    <!-- Latest Articles -->
+    <section class="section">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-subtitle">Fresh From the Journal</span>
@@ -130,7 +288,7 @@
     </section>
 
     <!-- Travel Categories -->
-    <section class="section">
+    <section class="section bg-alt">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-subtitle">Browse By Interest</span>
@@ -172,6 +330,34 @@
       </div>
     </section>
 
+    <!-- NEW: How It Works (Holiday planned in three steps) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Simple Planning</span>
+          <h2 class="section-title">Your Holiday, Planned in Three Steps</h2>
+          <p class="section-desc">From first idea to airport pick-up, we keep it clear and stress-free.</p>
+        </div>
+        <div class="season-grid">
+          <div class="season-card reveal">
+            <span class="season-months">Step 1</span>
+            <h3>Tell Us Your Ideas</h3>
+            <p>Share your travel dates, interests and group size.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">Step 2</span>
+            <h3>Receive Your Custom Plan</h3>
+            <p>We send a detailed itinerary and clear pricing, and we refine it with you until it is right.</p>
+          </div>
+          <div class="season-card reveal">
+            <span class="season-months">Step 3</span>
+            <h3>Travel With Confidence</h3>
+            <p>Enjoy your trip with 24/7 on-ground support from our team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Best Time to Visit -->
     <section class="section bg-sand">
       <div class="container">
@@ -196,6 +382,39 @@
             <h3>Cultural Triangle & Kandy Perahera</h3>
             <p>Witness the grand Kandy Esala Perahera festival and the Great Elephant Gathering at Minneriya National Park.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Holiday Specialists for Every Kind of Traveller -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">For Every Traveller</span>
+          <h2 class="section-title">Sri Lanka Holiday Specialists for Every Kind of Traveller</h2>
+        </div>
+        <div class="ag-intro reveal">
+          <p>As Sri Lanka holiday specialists, we plan trips for honeymooners, families with children, solo adventurers, friends travelling together and groups celebrating special occasions. Whether you have five days or three weeks, we will build a route that avoids rushed transfers and long, tiring drives.</p>
+        </div>
+        <div class="ag-chips reveal">
+          <span class="ag-chip">💑 Honeymooners</span>
+          <span class="ag-chip">👨‍👩‍👧 Families</span>
+          <span class="ag-chip">🎒 Solo Travellers</span>
+          <span class="ag-chip">👯 Friends</span>
+          <span class="ag-chip">🎉 Special Occasions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Trusted Travel Specialists -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Our Promise</span>
+          <h2 class="section-title">Trusted Sri Lanka Travel Specialists</h2>
+        </div>
+        <div class="ag-intro reveal" style="margin-bottom:0;">
+          <p>Our job is simple: take the stress out of planning so you can enjoy the journey. As dedicated Sri Lanka travel specialists, we work with hand-picked hotels, licensed guides and reliable transport partners across the island.</p>
         </div>
       </div>
     </section>
@@ -259,6 +478,20 @@
           <div class="slider-controls">
             <button class="filter-btn" id="prev-testimonial" aria-label="Previous testimonial">← Prev</button>
             <button class="filter-btn" id="next-testimonial" aria-label="Next testimonial">Next →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Ready to Start Planning (CTA) -->
+    <section class="section">
+      <div class="container">
+        <div class="newsletter-box reveal">
+          <h2>Ready to Start Planning?</h2>
+          <p>Tell us when you want to travel and what you love, and we will send you a personalised itinerary within one to two working days.</p>
+          <div class="ag-cta-row">
+            <a href="contact.html" class="btn btn-primary">Request Your Free Itinerary</a>
+            <a href="destinations.html" class="btn btn-outline">Browse Destinations</a>
           </div>
         </div>
       </div>

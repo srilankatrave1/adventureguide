@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://srilankatrave1.github.io/adventureguide/sitemap-pages.xml</loc>
+    <lastmod>2026-10-22</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://srilankatrave1.github.io/adventureguide/sitemap-destinations.xml</loc>
+    <lastmod>2026-10-22</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://srilankatrave1.github.io/adventureguide/sitemap-tours.xml</loc>
+    <lastmod>2026-10-22</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://srilankatrave1.github.io/adventureguide/sitemap-blogs.xml</loc>
+    <lastmod>2026-10-22</lastmod>
+  </sitemap>
+</sitemapindex>

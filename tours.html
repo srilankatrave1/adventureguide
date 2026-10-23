@@ -51,8 +51,6 @@ a{color:inherit;text-decoration:none}
 .hero p{max-width:60ch;margin-top:18px;color:#d6e6e4;font-size:1.02rem}
 .hero-facts{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:30px;font-size:.92rem;color:#e9f3f1}
 .hero-facts b{color:var(--gold);font-weight:600}
-.readmore{background:none;border:0;color:var(--gold);font:inherit;font-weight:600;cursor:pointer;margin-top:8px;padding:0}
-#moreText{display:none}
 
 /* Theme bubbles */
 .themes{display:flex;gap:22px;overflow-x:auto;padding:34px 4px 14px;scrollbar-width:thin}
@@ -64,6 +62,20 @@ a{color:inherit;text-decoration:none}
 .theme[aria-pressed="true"] .theme-img{border-color:var(--gold)}
 .theme span{font-size:.85rem;font-weight:500}
 .theme[aria-pressed="true"] span{font-weight:600}
+
+/* SEO content block */
+.seo-block{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 30px;margin:10px 0 26px;box-shadow:var(--shadow)}
+.seo-block h2{font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1.25;margin-bottom:12px}
+.seo-block h3{font-family:var(--serif);font-weight:600;font-size:1.1rem;margin:22px 0 8px}
+.seo-block p{color:var(--muted);font-size:.95rem;margin-bottom:12px;max-width:95ch}
+.seo-block p b{color:var(--ink);font-weight:600}
+#seoMore{display:none}
+#seoMore.open{display:block}
+.seo-toggle{background:none;border:0;color:var(--ocean);font:inherit;font-weight:600;cursor:pointer;padding:0;margin-top:4px}
+.seo-toggle:hover{text-decoration:underline}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .seo-toggle{color:var(--gold)}}
+:root[data-theme="dark"] .seo-toggle{color:var(--gold)}
+@media(max-width:600px){.seo-block{padding:22px 18px}}
 
 /* Layout */
 .listing{display:grid;grid-template-columns:270px 1fr;gap:30px;align-items:start;padding:20px 0 70px}
@@ -158,10 +170,7 @@ a{color:inherit;text-decoration:none}
   <section class="hero">
     <div class="container">
       <h1>Sri Lanka tour packages</h1>
-      <p>Pristine beaches, colonial heritage, misty tea country and leopard-filled national parks, all within a few hours of each other.
-        <span id="moreText">Every itinerary includes private transport, a local driver-guide and hand-picked stays, and can be adjusted for couples, families or solo travellers.</span>
-      </p>
-      <button class="readmore" id="readMore" aria-expanded="false">Read more</button>
+      <p>Pristine beaches, colonial heritage, misty tea country and leopard-filled national parks, all within a few hours of each other. Every itinerary includes private transport, a local driver-guide and hand-picked stays, and can be adjusted for couples, families or solo travellers.</p>
       <div class="hero-facts">
         <span><b>10</b> tested itineraries</span>
         <span><b>4–10</b> days</span>
@@ -172,6 +181,36 @@ a{color:inherit;text-decoration:none}
 
   <div class="container">
     <div class="themes" id="themes" role="group" aria-label="Filter by theme"></div>
+
+    <section class="seo-block" aria-labelledby="seoTitle">
+      <h2 id="seoTitle">Sri Lanka Tour Packages for Every Kind of Traveller</h2>
+      <p>A Sri Lanka tour is one of the few trips where you can climb an ancient rock fortress, ride a train through tea country, spot leopards at dawn and end the week on a beach, all without long transfers. Our Sri Lanka tour packages are built around that variety. Every itinerary includes a private driver-guide, hand-picked stays and a pace that leaves time to enjoy each stop. Use the themes above to find the trip that suits you.</p>
+
+      <div id="seoMore">
+        <h3>Why choose a Sri Lanka travel package</h3>
+        <p>The island is small on the map but varied on the ground. Roads in the hills are slow and winding, and distances that look short can take half a day. A well-planned Sri Lanka travel package removes that guesswork. Your driver-guide handles the route, hotels are confirmed before you land, and the order of stops follows the geography rather than forcing you to backtrack. You spend your time at the temple, the park or the beach instead of sorting out logistics.</p>
+
+        <h3>Sri Lanka holiday packages by theme</h3>
+        <p>Our Sri Lanka holiday packages are grouped into five themes. <b>Honeymoon</b> trips pair scenic train rides and private dinners with quiet beach stays. <b>Family</b> itineraries keep days short and include an elephant orphanage, village safaris and resorts with pools. <b>Wildlife</b> trips head to Yala, Wilpattu and Minneriya for jeep safaris, with whale watching off Mirissa as an optional extra. <b>Beach</b> holidays combine a few days in the hills with a relaxed finish on the southern coast. <b>Heritage</b> routes cover Sigiriya, Anuradhapura, Polonnaruwa and Kandy, including several UNESCO sites.</p>
+
+        <h3>Planning a Sri Lanka tour from Australia</h3>
+        <p>Many of our guests start in Sydney, Melbourne, Brisbane or Perth. Flights to Colombo usually involve one connection, so allow about a day for the journey and plan a restful first night. The Australian summer school holidays and Christmas break fall in the dry season for the west and south coasts, which makes December to March a popular window for a beach-focused trip. Wildlife travellers often prefer February to July for Yala. Entry rules for Australian passport holders can change, so confirm the current visa requirements before booking flights.</p>
+
+        <h3>What Sri Lanka tour packages from Australia include</h3>
+        <p>If you are comparing Sri Lanka tour packages from Australia, check what is actually covered. Ours include private air-conditioned transport, a licensed local driver-guide, accommodation, daily breakfast, entrance fees for the main sites listed in each itinerary and airport transfers on arrival and departure. International flights are not included, which lets you use your preferred airline, frequent flyer points or a stopover in Singapore or Kuala Lumpur. We can suggest arrival times that suit your flight so the first day does not feel rushed.</p>
+
+        <h3>Holiday packages that fit your dates and budget</h3>
+        <p>Our itineraries run from 4 to 10 days, with prices from $1,350 to $3,200 per person depending on length, hotel style and season. A short break suits a long weekend extension, while the longer circuits give Australian travellers enough time to see the hills, the cultural triangle and the coast in one trip. If you are looking at Sri Lanka holiday packages from Australia, a week to ten days is a comfortable length once you allow for the flight.</p>
+
+        <h3>Tailor-made options</h3>
+        <p>Every Sri Lanka holiday package on this page can be adjusted. You can add nights on the coast, swap a hotel for a boutique stay, include a cooking class or remove a stop you have already visited. Couples, small groups, multi-generational families and solo travellers all use the same planning process: choose the closest itinerary, tell us what you would change and we will send a revised plan.</p>
+
+        <h3>Start planning your trip</h3>
+        <p>Whether you are researching a Sri Lanka tour for next summer or comparing Sri Lanka travel packages from Australia for the coming school holidays, we are happy to answer questions before you commit. Use the filters below to narrow the list by budget, length and destination, then choose Enquire now on any tour to message us directly.</p>
+      </div>
+
+      <button class="seo-toggle" id="seoToggle" aria-expanded="false" aria-controls="seoMore">Read more</button>
+    </section>
 
     <div class="listing">
       <aside class="filters" aria-label="Tour filters">
@@ -324,8 +363,12 @@ function resetAll(){$("#kw").value="";$("#budget").value=3500;$("#budgetVal").te
 $("#budget").addEventListener("input",e=>{$("#budgetVal").textContent=e.target.value;render()});
 $("#reset").addEventListener("click",resetAll);
 
-// read more, menu, theme
-$("#readMore").onclick=function(){const m=$("#moreText"),o=m.style.display==="inline";m.style.display=o?"none":"inline";this.textContent=o?"Read more":"Read less";this.setAttribute("aria-expanded",!o)};
+// SEO read more, menu, theme
+$("#seoToggle").onclick=function(){
+  const box=$("#seoMore"), open=box.classList.toggle("open");
+  this.textContent=open?"Read less":"Read more";
+  this.setAttribute("aria-expanded",open);
+};
 $("#menuBtn").onclick=function(){const o=$("#navLinks").classList.toggle("open");this.setAttribute("aria-expanded",o)};
 $("#themeBtn").onclick=function(){const r=document.documentElement,dark=getComputedStyle(r).getPropertyValue("--bg").trim()==="#0c171b";r.dataset.theme=dark?"light":"dark";this.textContent=dark?"🌙":"☀️"};
 

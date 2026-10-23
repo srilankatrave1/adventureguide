@@ -333,7 +333,6 @@ document.querySelectorAll("[data-theme-link]").forEach(a=>a.addEventListener("cl
 
 function card(t){
   const nights=t.days-1, stops=t.route.map(([n,x])=>`<li>${n}<small>${x} night${x>1?'s':''}</small></li>`).join("");
-  const wa=`https://wa.me/94771234567?text=${encodeURIComponent("Hello, I'd like to book: "+t.title)}`;
   return `<article class="tour">
     <div class="tour-media">${imgTag(t.img,t.title)}${t.badge?`<span class="tag">${t.badge}</span>`:""}<span class="theme-tag">${LABEL[t.theme]||t.theme}</span></div>
     <div class="tour-body">
@@ -343,7 +342,7 @@ function card(t){
       <ul class="chips">${t.tags.map(x=>`<li>${x}</li>`).join("")}</ul>
       <div class="tour-foot">
         <div class="price"><small>From</small><b>$${t.price.toLocaleString()}</b> <span>per person</span></div>
-        <div class="actions"><a class="btn btn-ghost" href="tour-detail.html?slug=${t.slug}">View itinerary</a><a class="btn btn-primary" href="${wa}" target="_blank" rel="noopener">Enquire now</a></div>
+        <div class="actions"><a class="btn btn-primary" href="https://srilankatrave1.github.io/adventureguide/contact.html">Enquire now</a></div>
       </div>
     </div></article>`;
 }

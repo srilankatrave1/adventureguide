@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sri Lanka Tour Packages | Adventure Guide</title>
-<meta name="description" content="10 hand-picked Sri Lanka tour packages. Filter by theme, duration and budget: honeymoon, wildlife, beach, heritage and family holidays.">
+<meta name="description" content="10 hand-picked Sri Lanka tour packages. Filter by theme and duration: honeymoon, wildlife, beach, heritage and family holidays.">
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,7 +86,6 @@ a{color:inherit;text-decoration:none}
 .field{margin-bottom:16px}
 .field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px}
 .field input[type=text],.field select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;font-size:.9rem}
-.field input[type=range]{width:100%;accent-color:var(--ocean)}
 .field small{color:var(--muted);font-size:.8rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;border-radius:9px;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;border:1px solid transparent;transition:background .2s,border-color .2s}
 .btn-primary{background:var(--ocean);color:#fff}
@@ -121,10 +120,7 @@ a{color:inherit;text-decoration:none}
 
 .chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
 .chips li{font-size:.78rem;padding:4px 10px;border:1px solid var(--line);border-radius:20px;color:var(--muted)}
-.tour-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px;margin-top:auto}
-.price small{display:block;color:var(--muted);font-size:.78rem}
-.price b{font-family:var(--serif);font-size:1.7rem;font-weight:600}
-.price span{color:var(--muted);font-size:.82rem}
+.tour-foot{display:flex;justify-content:flex-end;align-items:flex-end;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px;margin-top:auto}
 .actions{display:flex;gap:10px;flex-wrap:wrap}
 .empty{text-align:center;padding:60px 20px;background:var(--card);border:1px dashed var(--line);border-radius:14px}
 .empty p{color:var(--muted);margin:6px 0 16px}
@@ -199,14 +195,14 @@ a{color:inherit;text-decoration:none}
         <h3>What Sri Lanka tour packages from Australia include</h3>
         <p>If you are comparing Sri Lanka tour packages from Australia, check what is actually covered. Ours include private air-conditioned transport, a licensed local driver-guide, accommodation, daily breakfast, entrance fees for the main sites listed in each itinerary and airport transfers on arrival and departure. International flights are not included, which lets you use your preferred airline, frequent flyer points or a stopover in Singapore or Kuala Lumpur. We can suggest arrival times that suit your flight so the first day does not feel rushed.</p>
 
-        <h3>Holiday packages that fit your dates and budget</h3>
-        <p>Our itineraries run from 4 to 10 days, with prices from $1,350 to $3,200 per person depending on length, hotel style and season. A short break suits a long weekend extension, while the longer circuits give Australian travellers enough time to see the hills, the cultural triangle and the coast in one trip. If you are looking at Sri Lanka holiday packages from Australia, a week to ten days is a comfortable length once you allow for the flight.</p>
+        <h3>Holiday packages that fit your dates</h3>
+        <p>Our itineraries run from 4 to 10 days, with hotel style and season shaping the final cost. A short break suits a long weekend extension, while the longer circuits give Australian travellers enough time to see the hills, the cultural triangle and the coast in one trip. If you are looking at Sri Lanka holiday packages from Australia, a week to ten days is a comfortable length once you allow for the flight. Send us your dates and group size and we will confirm a price for your chosen itinerary.</p>
 
         <h3>Tailor-made options</h3>
         <p>Every Sri Lanka holiday package on this page can be adjusted. You can add nights on the coast, swap a hotel for a boutique stay, include a cooking class or remove a stop you have already visited. Couples, small groups, multi-generational families and solo travellers all use the same planning process: choose the closest itinerary, tell us what you would change and we will send a revised plan.</p>
 
         <h3>Start planning your trip</h3>
-        <p>Whether you are researching a Sri Lanka tour for next summer or comparing Sri Lanka travel packages from Australia for the coming school holidays, we are happy to answer questions before you commit. Use the filters below to narrow the list by budget, length and destination, then choose Enquire now on any tour to message us directly.</p>
+        <p>Whether you are researching a Sri Lanka tour for next summer or comparing Sri Lanka travel packages from Australia for the coming school holidays, we are happy to answer questions before you commit. Use the filters below to narrow the list by length and destination, then choose Enquire now on any tour to message us directly.</p>
       </div>
 
       <button class="seo-toggle" id="seoToggle" aria-expanded="false" aria-controls="seoMore">Read more</button>
@@ -218,11 +214,6 @@ a{color:inherit;text-decoration:none}
         <div class="field">
           <label for="kw">Search place or tour</label>
           <input type="text" id="kw" placeholder="Kandy, Ella, Yala">
-        </div>
-        <div class="field">
-          <label for="budget">Maximum budget per person</label>
-          <input type="range" id="budget" min="1000" max="3500" step="100" value="3500">
-          <small>Up to $<span id="budgetVal">3500</span></small>
         </div>
         <div class="field">
           <label for="dur">Duration</label>
@@ -237,8 +228,6 @@ a{color:inherit;text-decoration:none}
           <label for="sort">Sort by</label>
           <select id="sort">
             <option value="popular">Most popular</option>
-            <option value="low">Price: low to high</option>
-            <option value="high">Price: high to low</option>
             <option value="days">Duration</option>
           </select>
         </div>
@@ -276,50 +265,49 @@ a{color:inherit;text-decoration:none}
 <a class="wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" href="https://wa.me/94771234567?text=Hello%20Adventure%20Guide%2C%20I%20want%20to%20plan%20a%20trip!">💬</a>
 
 <script>
-const U = id => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=700&q=75`;
 const TOURS = [
- {slug:"short-break-sri-lanka",title:"A Short Break in Sri Lanka",theme:"Family",days:4,price:1350,rank:5,badge:"",
-  img:U("photo-1546708973-b3c95f3c5179"),route:[["Kandy",1],["Nuwara Eliya",1],["Bentota",1]],
+ {slug:"short-break-sri-lanka",title:"A Short Break in Sri Lanka",theme:"Family",days:4,rank:5,badge:"",
+  img:"images/tours/short-break-sri-lanka.jpg",route:[["Kandy",1],["Nuwara Eliya",1],["Bentota",1]],
   desc:"The essentials in four days: Kandy's Temple of the Tooth, tea valleys in Nuwara Eliya and a beach finish in Bentota.",
   tags:["Temple of the Tooth","Tea factory visit","Beach time"]},
- {slug:"glimpses-of-sri-lanka",title:"Glimpses of Sri Lanka",theme:"Cultural",days:5,price:1650,rank:8,badge:"Traveller's choice",
-  img:U("photo-1588598198327-02059341496b"),route:[["Sigiriya",2],["Kandy",1],["Bentota",1]],
+ {slug:"glimpses-of-sri-lanka",title:"Glimpses of Sri Lanka",theme:"Cultural",days:5,rank:8,badge:"Traveller's choice",
+  img:"images/tours/glimpses-of-sri-lanka.jpg",route:[["Sigiriya",2],["Kandy",1],["Bentota",1]],
   desc:"Climb Sigiriya Rock, explore Dambulla Cave Temple and unwind on the southwest coast.",
   tags:["Sigiriya Rock","Dambulla caves","Village lunch"]},
- {slug:"yala-safari-mirissa-coast",title:"Wildlife and Southern Coast Escape",theme:"Wildlife",days:5,price:1890,rank:9,badge:"Best for wildlife",
-  img:U("photo-1534447677768-be436bb09401"),route:[["Yala",2],["Mirissa",2]],
+ {slug:"yala-safari-mirissa-coast",title:"Wildlife and Southern Coast Escape",theme:"Wildlife",days:5,rank:9,badge:"Best for wildlife",
+  img:"images/tours/yala-safari-mirissa-coast.jpg",route:[["Yala",2],["Mirissa",2]],
   desc:"Jeep safaris for leopards and elephants in Yala, then whale watching off the coast at Mirissa.",
   tags:["Yala jeep safari","Whale watching","Galle Fort"]},
- {slug:"ella-train-hill-country",title:"Hill Country Train Journey and Ella",theme:"Honeymoon",days:6,price:1750,rank:10,badge:"Most booked",
-  img:U("photo-1552465011-b4e21bf6e79a"),route:[["Kandy",1],["Nuwara Eliya",2],["Ella",2]],
+ {slug:"ella-train-hill-country",title:"Hill Country Train Journey and Ella",theme:"Honeymoon",days:6,rank:10,badge:"Most booked",
+  img:"images/tours/ella-train-hill-country.jpg",route:[["Kandy",1],["Nuwara Eliya",2],["Ella",2]],
   desc:"Ride the scenic Kandy to Ella train, walk Nine Arch Bridge and watch sunrise from Little Adam's Peak.",
   tags:["Scenic train","Nine Arch Bridge","Private dinner"]},
- {slug:"romantic-beach-honeymoon",title:"Romantic Beaches Honeymoon",theme:"Honeymoon",days:7,price:2250,rank:7,badge:"",
-  img:U("photo-1507525428034-b723cf961d3e"),route:[["Negombo",1],["Bentota",3],["Galle",3]],
+ {slug:"romantic-beach-honeymoon",title:"Romantic Beaches Honeymoon",theme:"Honeymoon",days:7,rank:7,badge:"",
+  img:"images/tours/romantic-beach-honeymoon.jpg",route:[["Negombo",1],["Bentota",3],["Galle",3]],
   desc:"Sunset dinners, spa time and slow days between Bentota's beaches and the ramparts of Galle Fort.",
   tags:["Candlelit dinner","Couples spa","Galle Fort"]},
- {slug:"cultural-triangle-explorer",title:"Cultural Triangle Explorer",theme:"Cultural",days:8,price:2100,rank:6,badge:"",
-  img:U("photo-1506744038136-46273834b3fb"),route:[["Anuradhapura",1],["Polonnaruwa",1],["Sigiriya",2],["Kandy",2],["Colombo",1]],
+ {slug:"cultural-triangle-explorer",title:"Cultural Triangle Explorer",theme:"Cultural",days:8,rank:6,badge:"",
+  img:"images/tours/cultural-triangle-explorer.jpg",route:[["Anuradhapura",1],["Polonnaruwa",1],["Sigiriya",2],["Kandy",2],["Colombo",1]],
   desc:"Sri Lanka's ancient capitals and UNESCO sites, from sacred Anuradhapura to hilltop Kandy.",
   tags:["3 UNESCO sites","Cooking class","Expert guide"]},
- {slug:"leopards-and-elephants-safari",title:"Leopards and Elephants Safari",theme:"Wildlife",days:7,price:2400,rank:5,badge:"",
-  img:U("photo-1534447677768-be436bb09401"),route:[["Wilpattu",2],["Minneriya",2],["Yala",3]],
+ {slug:"leopards-and-elephants-safari",title:"Leopards and Elephants Safari",theme:"Wildlife",days:7,rank:5,badge:"",
+  img:"images/tours/leopards-and-elephants-safari.jpg",route:[["Wilpattu",2],["Minneriya",2],["Yala",3]],
   desc:"Three national parks, three ecosystems: Wilpattu's lakes, Minneriya's elephant gathering and Yala's leopards.",
   tags:["3 safaris","Naturalist guide","Eco lodges"]},
- {slug:"tea-country-and-coast",title:"Tea Country and Coast",theme:"Beach",days:9,price:2650,rank:6,badge:"",
-  img:U("photo-1588598198327-02059341496b"),route:[["Kandy",2],["Nuwara Eliya",2],["Ella",2],["Mirissa",3]],
+ {slug:"tea-country-and-coast",title:"Tea Country and Coast",theme:"Beach",days:9,rank:6,badge:"",
+  img:"images/tours/tea-country-and-coast.jpg",route:[["Kandy",2],["Nuwara Eliya",2],["Ella",2],["Mirissa",3]],
   desc:"Mountains first, ocean last: tea estates and waterfalls, then three easy beach days in the south.",
   tags:["Tea estate stay","Hiking","Beach finish"]},
- {slug:"family-adventure-sri-lanka",title:"Family Adventure Holiday",theme:"Family",days:8,price:2300,rank:7,badge:"Family favourite",
-  img:U("photo-1546708973-b3c95f3c5179"),route:[["Pinnawala",1],["Sigiriya",2],["Kandy",2],["Bentota",3]],
+ {slug:"family-adventure-sri-lanka",title:"Family Adventure Holiday",theme:"Family",days:8,rank:7,badge:"Family favourite",
+  img:"images/tours/family-adventure-sri-lanka.jpg",route:[["Pinnawala",1],["Sigiriya",2],["Kandy",2],["Bentota",3]],
   desc:"Elephant orphanage, village safari, cooking classes and a resort stay with a pool, planned around children.",
   tags:["Kid-friendly","Elephant orphanage","Resort pool"]},
- {slug:"grand-sri-lanka-circuit",title:"The Grand Sri Lanka Circuit",theme:"Cultural",days:10,price:3200,rank:8,badge:"Signature tour",
-  img:U("photo-1552465011-b4e21bf6e79a"),route:[["Colombo",1],["Sigiriya",2],["Kandy",2],["Ella",2],["Yala",1],["Galle",2]],
+ {slug:"grand-sri-lanka-circuit",title:"The Grand Sri Lanka Circuit",theme:"Cultural",days:10,rank:8,badge:"Signature tour",
+  img:"images/tours/grand-sri-lanka-circuit.jpg",route:[["Colombo",1],["Sigiriya",2],["Kandy",2],["Ella",2],["Yala",1],["Galle",2]],
   desc:"Our complete island loop: heritage, hill country, safari and the south coast in ten unhurried days.",
   tags:["All highlights","Boutique stays","Private guide"]}
 ];
-const THEMES=[["All","All packages",U("photo-1546708973-b3c95f3c5179")],["Honeymoon","Honeymoon",U("photo-1507525428034-b723cf961d3e")],["Family","Family",U("photo-1588598198327-02059341496b")],["Wildlife","Wildlife",U("photo-1534447677768-be436bb09401")],["Beach","Beach",U("photo-1506744038136-46273834b3fb")],["Cultural","Heritage",U("photo-1552465011-b4e21bf6e79a")]];
+const THEMES=[["All","All packages","images/themes/all.jpg"],["Honeymoon","Honeymoon","images/themes/honeymoon.jpg"],["Family","Family","images/themes/family.jpg"],["Wildlife","Wildlife","images/themes/wildlife.jpg"],["Beach","Beach","images/themes/beach.jpg"],["Cultural","Heritage","images/themes/heritage.jpg"]];
 const LABEL={Cultural:"Heritage"};
 const $=s=>document.querySelector(s);
 const state={theme:"All"};
@@ -341,25 +329,23 @@ function card(t){
       <ol class="route" aria-label="Route">${stops}</ol>
       <ul class="chips">${t.tags.map(x=>`<li>${x}</li>`).join("")}</ul>
       <div class="tour-foot">
-        <div class="price"><small>From</small><b>$${t.price.toLocaleString()}</b> <span>per person</span></div>
         <div class="actions"><a class="btn btn-primary" href="https://srilankatrave1.github.io/adventureguide/contact.html">Enquire now</a></div>
       </div>
     </div></article>`;
 }
 
 function render(){
-  const kw=$("#kw").value.trim().toLowerCase(), max=+$("#budget").value, d=$("#dur").value, s=$("#sort").value;
-  let r=TOURS.filter(t=>(state.theme==="All"||t.theme===state.theme)&&t.price<=max
-    &&(!kw||(t.title+" "+t.route.map(x=>x[0]).join(" ")+" "+t.tags.join(" ")).toLowerCase().includes(kw))
+  const kw=$("#kw").value.trim().toLowerCase(), d=$("#dur").value, s=$("#sort").value;
+  let r=TOURS.filter(t=>(state.theme==="All"||t.theme===state.theme)&&
+    (!kw||(t.title+" "+t.route.map(x=>x[0]).join(" ")+" "+t.tags.join(" ")).toLowerCase().includes(kw))
     &&(d==="all"||(d==="short"&&t.days<=5)||(d==="mid"&&t.days>=6&&t.days<=8)||(d==="long"&&t.days>=9)));
-  r.sort((a,b)=>s==="low"?a.price-b.price:s==="high"?b.price-a.price:s==="days"?a.days-b.days:b.rank-a.rank);
+  r.sort((a,b)=>s==="days"?a.days-b.days:b.rank-a.rank);
   $("#count").textContent=r.length;
-  $("#list").innerHTML=r.length?r.map(card).join(""):`<div class="empty"><h3>No tours match these filters</h3><p>Try a higher budget or a different theme.</p><button class="btn btn-primary" id="emptyReset">Reset filters</button></div>`;
+  $("#list").innerHTML=r.length?r.map(card).join(""):`<div class="empty"><h3>No tours match these filters</h3><p>Try a different duration or theme.</p><button class="btn btn-primary" id="emptyReset">Reset filters</button></div>`;
   const er=$("#emptyReset"); if(er) er.onclick=resetAll;
 }
-function resetAll(){$("#kw").value="";$("#budget").value=3500;$("#budgetVal").textContent=3500;$("#dur").value="all";$("#sort").value="popular";setTheme("All")}
+function resetAll(){$("#kw").value="";$("#dur").value="all";$("#sort").value="popular";setTheme("All")}
 ["kw","dur","sort"].forEach(i=>$("#"+i).addEventListener("input",render));
-$("#budget").addEventListener("input",e=>{$("#budgetVal").textContent=e.target.value;render()});
 $("#reset").addEventListener("click",resetAll);
 
 // SEO read more, menu, theme
